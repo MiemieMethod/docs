@@ -1709,7 +1709,7 @@
 <h1><p id="Entities">实体</p></h1>
 
 <table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:4;">
-<tr> <th style="border-style:solid; border-width:4;">Identifier</th> <th style="border-style:solid; border-width:4;">Full ID</th> <th style="border-style:solid; border-width:4;">Short ID</th> </tr>
+<tr> <th style="border-style:solid; border-width:4;">ID</th> <th style="border-style:solid; border-width:4;">完整ID</th> <th style="border-style:solid; border-width:4;">短ID</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:4; padding:6px">agent</td>
 <td style="border-style:solid; border-width:4; padding:6px">312</td>
@@ -2439,25 +2439,25 @@
 <td style="border-style:solid; border-width:1; padding:9px">faces</td>
 <td style="border-style:solid; border-width:1; padding:9px">列表</td>
 <td style="border-style:solid; border-width:1; padding:9px"></td>
-<td style="border-style:solid; border-width:1; padding:9px">列表 of the 6 faces of the box. If specified, there MUST be 6 faces (front, back, left side, right side, top, bottom)</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
+<td style="border-style:solid; border-width:1; padding:9px">立方体六个<a href="https://wiki.adodoz.cn/面">面</a>的列表。如果指定，就必须写全6个面（顺序为前面、后面、左侧面、右侧面、上面、下面）</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
 <tr> <th style="border-style:solid; border-width:1;">名称</th> <th style="border-style:solid; border-width:1;">类型</th> <th style="border-style:solid; border-width:1;">默认值</th> <th style="border-style:solid; border-width:1;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:10px">material</td>
 <td style="border-style:solid; border-width:1; padding:10px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:10px"></td>
-<td style="border-style:solid; border-width:1; padding:10px">The material of this face if different from the box's</br></td>
+<td style="border-style:solid; border-width:1; padding:10px">如果该面使用的<a href="https://wiki.adodoz.cn/材质">材质</a>与其所属的立方体使用的材质不同，在这里指定该面使用的材质</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:10px">rotation</td>
 <td style="border-style:solid; border-width:1; padding:10px">小数</td>
 <td style="border-style:solid; border-width:1; padding:10px">0.0</td>
-<td style="border-style:solid; border-width:1; padding:10px">UV Rotation of this face. Only acceptable values are 0, 90 and 270 degrees. This allows reusing a texture and just rotating it for different faces</br></td>
+<td style="border-style:solid; border-width:1; padding:10px">该面的的UV旋转值。只接受0、90和270度。这允许你仅仅是为不同的面旋转的情形下复用同一个纹理</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:10px">uv</td>
 <td style="border-style:solid; border-width:1; padding:10px">向量 [a, b, c, d]</td>
 <td style="border-style:solid; border-width:1; padding:10px">[ 0.0, 0.0, 1.0, 1.0 ]</td>
-<td style="border-style:solid; border-width:1; padding:10px">Texture coordinates of this face, given as min x, min y, max x, max y withg values between 0.0 and 1.0</br></td>
+<td style="border-style:solid; border-width:1; padding:10px">该面的纹理坐标，给定顺序为最小x坐标、最小y坐标、最大x坐标、最大y坐标，值在0.0到1.0之间</br></td>
 </tr>
 </table>
 </td>
@@ -2466,19 +2466,19 @@
 <td style="border-style:solid; border-width:1; padding:9px">material</td>
 <td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px"></td>
-<td style="border-style:solid; border-width:1; padding:9px">The material of this box if different from the element's</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">如果该立方体使用的<a href="https://wiki.adodoz.cn/材质">材质</a>与其所属的元素使用的材质不同，在这里指定该立方体使用的材质</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">origin</td>
 <td style="border-style:solid; border-width:1; padding:9px">向量 [a, b, c]</td>
 <td style="border-style:solid; border-width:1; padding:9px">[ 0.0, 0.0, 0.0 ]</td>
-<td style="border-style:solid; border-width:1; padding:9px">The position of the center of the box relative to the geometry</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">该立方体中心相对于整个几何的位置</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">size</td>
 <td style="border-style:solid; border-width:1; padding:9px">向量 [a, b, c]</td>
 <td style="border-style:solid; border-width:1; padding:9px">[ 0, 0, 0 ]</td>
-<td style="border-style:solid; border-width:1; padding:9px">Scale of the box in the x, y and z coordinates. A typical block is of scale 1, 1, 1</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">该立方体在x、y和z坐标中的放缩比例。最一般的方块的比例是1,1,1</br></td>
 </tr>
 </table>
 </td>
@@ -2487,31 +2487,31 @@
 <td style="border-style:solid; border-width:2; padding:8px">material</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">The material of this element if different from the block's</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">如果该元素使用的<a href="https://wiki.adodoz.cn/材质">材质</a>与其所属的方块使用的材质不同，在这里指定该元素使用的材质</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">name</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">Name of the element</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">元素名称</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">parent</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">Name of the parent element of this element. Pivot and box positions are made relative to the parent element's pivot</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">该元素的父元素的名称。轴心点和立方体位置都是相对于父元素的支点计算的</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">pivot</td>
 <td style="border-style:solid; border-width:2; padding:8px">向量 [a, b, c]</td>
 <td style="border-style:solid; border-width:2; padding:8px">[ 0.0, 0.0, 0.0 ]</td>
-<td style="border-style:solid; border-width:2; padding:8px">Position in model space of the pivot point of the element. This is used as the "center" position of the element, as well as the point around which to rotate</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">元素轴心点在模型空间中的位置。这用于确定元素的"center"位置，以及要围绕它旋转的点的位置</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">rotation</td>
 <td style="border-style:solid; border-width:2; padding:8px">向量 [a, b, c]</td>
 <td style="border-style:solid; border-width:2; padding:8px">[ 0.0, 0.0, 0.0 ]</td>
-<td style="border-style:solid; border-width:2; padding:8px">The rotation of this element about its pivot</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">该元素围绕它的轴心点的旋转角</br></td>
 </tr>
 </table>
 </td>
@@ -2520,7 +2520,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">format_version</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.0.0.0</td>
-<td style="border-style:solid; border-width:3; padding:7px">Version of the block geometry being used. This is used to determine if backwards compatibility is needed</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该方块几何使用的版本。这用于确定游戏是否需要向后兼容</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">materials</td>
@@ -2542,7 +2542,7 @@
 <h1><p id="Items">物品</p></h1>
 
 <table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:4;">
-<tr> <th style="border-style:solid; border-width:4;">名称</th> <th style="border-style:solid; border-width:4;">ID</th> <th style="border-style:solid; border-width:4;">Aux Values</th> </tr>
+<tr> <th style="border-style:solid; border-width:4;">名称</th> <th style="border-style:solid; border-width:4;">ID</th> <th style="border-style:solid; border-width:4;">附加值</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:4; padding:6px">acacia_boat</td>
 <td style="border-style:solid; border-width:4; padding:6px">377</td>
@@ -7136,37 +7136,37 @@
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">base_game_version</td>
 <td style="border-style:solid; border-width:3; padding:7px">向量 [a, b, c]</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the version of the base game your world template requires, specified as [majorVersion, minorVersion, revision].</br>We use this to determine what version of the base game resource and behavior packs to apply when your content is used.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是你的<a href="https://wiki.adodoz.cn/世界模板">世界模板</a>需要的基础游戏版本，格式为[majorVersion, minorVersion, revision]。</br>我们用此字段来确定游戏在应用你的内容时应该使用什么版本的基础资源包和行为包。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">description</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is a short description of the pack. It will appear in the game below the name of the pack. We recommend keeping it to 1-2 lines.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是对该包的简短描述。它会出现在游戏中包的名字的下面。我们建议保持在1-2行之内。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">lock_template_options</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px">This option is required for any world templates. This will lock the player from modifying the options of the world.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">任何<a href="https://wiki.adodoz.cn/世界模板">世界模板</a>都必选这个选项。设置为true将阻止玩家修改游戏世界的选项。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">min_engine_version</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the minimum version of the game that this pack was written for.  This is a required field for resource and behavior packs. This helps the game identify whether any backwards compatibility is needed for your pack. You should always use the highest version currently available when creating packs</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是这个包为之编写的游戏最低版本。它是资源包和行为包的必选字段。该字段可以帮助游戏确定你的包是否需要向后兼容。在创建包时，你应该始终使用当前可用的最高版本</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">name</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the name of the pack as it appears within Minecraft. This is a required field.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是将在Minecraft中出现的包的名字。它是必选字段。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">uuid</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is a special type of identifier that uniquely identifies this pack from any other pack. UUIDs are written in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx where each x is a hexadecimal value (0-9 or a-f). We recommend using an online service to generate this and guarantee their uniqueness (just bing UUID Generator to find some)</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是一种特殊类型的ID，它可以将此包与其他包惟一标识开来。UUID均写以xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx格式，其中x为16进制数码（0-9或a-f）。我们建议使用在线服务来生成它，以保证其唯一性（只需搜索“UUID生成器”就可以找到一些在线生成网站）。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">version</td>
 <td style="border-style:solid; border-width:3; padding:7px">向量 [a, b, c]</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the version of your pack in the format [majorVersion, minorVersion, revision].</br>The version number is used when importing a pack that has been imported before. The new pack will replace the old one if the version is higher, and ignored if it's the same or lower</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是你的包的版本，格式为[majorVersion, minorVersion, revision]。</br>该版本号主要在于之前导入过该包的旧版本时起作用。在导入新包时，如果新包版本更高，新包将取代旧包；如果版本相同或新包更低，则不进行导入操作</br></td>
 </tr>
 </table>
 </td>
@@ -7178,22 +7178,22 @@
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">description</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is a short description of the module. This is not user-facing at the moment but is a good place to remind yourself why the module is defined</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是对该模块的简短描述。这个值当前不是用户可见的，但这是一个提醒自己为什么定义了这个模块的好地方</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">type</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the type of the module. Can be any of the following: resources, data, client_data, interface, world_template</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是该模块的类型，可以是以下任何一种：resources，data，client_data，interface，world_template</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">uuid</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is a unique identifier for the module in the same format as the pack's UUID in the header. This should be different from the pack's UUID, and different for every module</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是该模块的UUID，格式与包在header中的UUID相同。模块的UUID不应与包的UUID相同，并且模块之间也不应相同</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">version</td>
 <td style="border-style:solid; border-width:3; padding:7px">向量 [a, b, c]</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the version of the module in the same format as the pack's version in the header. This can be used to further identify changes in your pack</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是该模块的版本，格式与包在header中的版本相同。这可以用来进一步标识包中的更改</br></td>
 </tr>
 </table>
 </td>
@@ -7205,12 +7205,12 @@
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">uuid</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the unique identifier of the pack that this pack depends on. It needs to be the exact same UUID that the pack has defined in the header section of it's manifest file</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是该包所依赖的包的UUID。它需要与所依赖的包在清单文件的header部分中定义的UUID完全相同</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">version</td>
 <td style="border-style:solid; border-width:3; padding:7px">向量 [a, b, c]</td>
-<td style="border-style:solid; border-width:3; padding:7px">This is the specific version of the pack that your pack depends on. Should match the version the other pack has in its manifest file</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">这是该包所依赖的包的特定版本。应该与所依赖的包在其清单文件中的版本匹配。</br></td>
 </tr>
 </table>
 </td>
@@ -7241,17 +7241,17 @@
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">authors</td>
 <td style="border-style:solid; border-width:3; padding:7px">数组</td>
-<td style="border-style:solid; border-width:3; padding:7px">Name of the author(s) of the pack</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该包作者的名字</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">license</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">The license of the pack</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该包遵循的协议</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">url</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">The home website of your pack</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">你的包的网站主页</br></td>
 </tr>
 </table>
 </td>
