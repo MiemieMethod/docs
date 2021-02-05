@@ -22,55 +22,55 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:block_light_absorption</td>
 <td style="border-style:solid; border-width:3; padding:7px">整数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0</td>
-<td style="border-style:solid; border-width:3; padding:7px">定义此方块吸收的亮度</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义该方块吸收的亮度变化量</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:block_light_emission</td>
 <td style="border-style:solid; border-width:3; padding:7px">小数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.0</td>
-<td style="border-style:solid; border-width:3; padding:7px">定义此方块发光的亮度，定义范围为[0.0, 1.0]</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义该方块发光的亮度，定义范围为[0.0, 1.0]</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:breakonpush</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">定义在被活塞推动时是否摧毁方块</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义该方块被推动时是否被活塞破坏</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:breathability</td>
-<td style="border-style:solid; border-width:3; padding:7px">枚举器</td>
+<td style="border-style:solid; border-width:3; padding:7px">枚举</td>
 <td style="border-style:solid; border-width:3; padding:7px">solid</td>
-<td style="border-style:solid; border-width:3; padding:7px">定义方块的透气性以及其是否会被当做固体或空气</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义方块的可呼吸性以及其是会被当做固体还是气体</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:destroy_time</td>
 <td style="border-style:solid; border-width:3; padding:7px">小数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.0</td>
-<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间（即硬度），时间越长越难摧毁</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间，数值越大挖掘时间越长</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
-<td style="border-style:solid; border-width:3; padding:7px">无</td>
-<td style="border-style:solid; border-width:3; padding:7px">指定方块的显示名称</br></td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">指定方块的显示名称ID</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:entity_collision</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px">false</td>
-<td style="border-style:solid; border-width:3; padding:7px">只能设置为false，这样做会禁用此方块的实体碰撞箱</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">只能设定为false，这样做会禁用该方块与实体的碰撞</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">origin</td>
 <td style="border-style:solid; border-width:2; padding:8px">数组</td>
 <td style="border-style:solid; border-width:2; padding:8px">[-8.0, 0.0, -8.0]</td>
-<td style="border-style:solid; border-width:2; padding:8px">碰撞箱的最小起始位置</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">碰撞箱边界的最小起始位置</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">size</td>
 <td style="border-style:solid; border-width:2; padding:8px">数组</td>
 <td style="border-style:solid; border-width:2; padding:8px">[16.0, 16.0, 16.0]</td>
-<td style="border-style:solid; border-width:2; padding:8px">碰撞箱每一个方向的大小</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">该组件碰撞箱每一个方向上的大小</br></td>
 </tr>
 </table>
 </td>
@@ -85,19 +85,19 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:flammable</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">定义方块的燃烧特性</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">定义方块的燃烧属性</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">burn_odds</td>
 <td style="border-style:solid; border-width:2; padding:8px">整数</td>
 <td style="border-style:solid; border-width:2; padding:8px">0</td>
-<td style="border-style:solid; border-width:2; padding:8px">定义此方块着火时被烧掉的概率</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">定义该方块着火时被烧掉的概率</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">flame_odds</td>
 <td style="border-style:solid; border-width:2; padding:8px">整数</td>
 <td style="border-style:solid; border-width:2; padding:8px">0</td>
-<td style="border-style:solid; border-width:2; padding:8px">定义此方块靠近火源时着火的概率</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">定义该方块靠近火源时着火的概率</br></td>
 </tr>
 </table>
 </td>
@@ -106,19 +106,19 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:friction</td>
 <td style="border-style:solid; border-width:3; padding:7px">小数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.1</td>
-<td style="border-style:solid; border-width:3; padding:7px">定义方块的摩擦力，摩擦力会影响实体在此方块上行走的效果。</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义方块的摩擦力，摩擦力会影响实体在该方块上行走的效果。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:geometry</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">填写要使用的模型的名称</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">填写要使用的几何定义名</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:immovable</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">定义该方块能否被活塞推动</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义该方块能否不能被活塞推动</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:map_color</td>
@@ -130,31 +130,31 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:material_instances</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">将模型文件中的面或材质实例名称映射到实际材质实例。材质实例可以是整个模型，也可以是另一个已定义实例的名称</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将几何文件中的一个面或material_instance名映射到真实的材质实例上。填入的材质实例可以是一个完整的材质实例，也可以是另一个已经定义好的实例名</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:onlypistonpush</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">拥有此组件的方块不能被粘性活塞拉回</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">拥有该组件的方块不能被黏性活塞拉回</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:pick_collision</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px">false</td>
-<td style="border-style:solid; border-width:3; padding:7px">只能被设为false，这样做会禁用此方块的实体碰撞箱</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">只能设定为false，这样做会禁用该方块与实体的碰撞</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">origin</td>
 <td style="border-style:solid; border-width:2; padding:8px">数组</td>
 <td style="border-style:solid; border-width:2; padding:8px">[-8.0, 0.0, -8.0]</td>
-<td style="border-style:solid; border-width:2; padding:8px">碰撞箱的最小起始位置</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">碰撞箱边界的最小起始位置</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">size</td>
 <td style="border-style:solid; border-width:2; padding:8px">数组</td>
 <td style="border-style:solid; border-width:2; padding:8px">[16.0, 16.0, 16.0]</td>
-<td style="border-style:solid; border-width:2; padding:8px">碰撞箱每一个方向的大小</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">该组件碰撞箱每一个方向上的大小</br></td>
 </tr>
 </table>
 </td>
@@ -163,9 +163,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:placement_filter</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">设置该方块在什么状况下能够被放置/存在</br><h3><p id="conditions">conditions</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">设置该方块在什么条件下能够被放置和生存的规则</br><h3><p id="条件">条件</p></h3>
 
-该方块能够被放置/存在情况的列表</br><h4></h4>
+该方块能够被放置和生存的条件的列表</br><h4></h4>
 
 <table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
 <tr> <th style="border-style:solid; border-width:1;">名称</th> <th style="border-style:solid; border-width:1;">类型</th> <th style="border-style:solid; border-width:1;">默认值</th> <th style="border-style:solid; border-width:1;">描述</th> </tr>
@@ -173,13 +173,13 @@
 <td style="border-style:solid; border-width:1; padding:9px">allowed_faces</td>
 <td style="border-style:solid; border-width:1; padding:9px">数组</td>
 <td style="border-style:solid; border-width:1; padding:9px"></td>
-<td style="border-style:solid; border-width:1; padding:9px">包含下列任意字符串的列表: up, down, north, south, east, west, side, all</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">包含下列任意字符串的列表: up，down，north，south，east，west，side，all</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">block_filter</td>
 <td style="border-style:solid; border-width:1; padding:9px">数组</td>
 <td style="border-style:solid; border-width:1; padding:9px"></td>
-<td style="border-style:solid; border-width:1; padding:9px">在满足allowed_faces的情况下下此方块可被放置的方块列表（可使用tag指定）</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">该方块可以在allowed_faces的方向上置于其上的方块（可使用标签指定）的列表</br></td>
 </tr>
 </table>
 <a href="#索引">回到顶部</a><br><br>
@@ -190,13 +190,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:preventsjumping</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">此组件会使实体在上方行走时无法跳跃</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该组件会使行动对象在上方行走时无法跳跃</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:random_ticking</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">该组件将在两个定义值之间的固定区间内触发事件</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">该组件将在两值为端点的固定区间内触发事件</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">Trigger</td>
@@ -208,13 +208,13 @@
 <td style="border-style:solid; border-width:1; padding:9px">condition</td>
 <td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px">1</td>
-<td style="border-style:solid; border-width:1; padding:9px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">在该方块上执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">event</td>
 <td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px">set_block_property</td>
-<td style="border-style:solid; border-width:1; padding:9px">将要执行的事件</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">将要执行的事件类型</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">range</td>
@@ -226,7 +226,7 @@
 <td style="border-style:solid; border-width:1; padding:9px">target</td>
 <td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px">self</td>
-<td style="border-style:solid; border-width:1; padding:9px">执行事件的对象</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">执行事件的目标对象</br></td>
 </tr>
 </table>
 </td>
@@ -256,7 +256,7 @@
 <td style="border-style:solid; border-width:1; padding:9px">condition</td>
 <td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px">1</td>
-<td style="border-style:solid; border-width:1; padding:9px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:1; padding:9px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">event</td>
@@ -283,7 +283,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">looping</td>
 <td style="border-style:solid; border-width:2; padding:8px">布尔值</td>
 <td style="border-style:solid; border-width:2; padding:8px">true</td>
-<td style="border-style:solid; border-width:2; padding:8px">此组件是否生成掉落物</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">该组件是否生成掉落物</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">range</td>
@@ -304,7 +304,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:unwalkable</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">将此方块视为不可越过。如果设置为true则大部分实体不会试着跳上它</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将该方块视为不可越过。如果设置为true则大部分实体不会试着跳上它</br></td>
 </tr>
 </table>
 <a href="#索引">回到顶部</a><br><br>
@@ -346,7 +346,7 @@
 </textarea> </br>
 <a href="#索引">回到顶部</a><br><br>
 
-<h1><p id="Block Description Properties">方块描述属性</p></h1>
+<h1><p id="方块描述属性">方块描述属性</p></h1>
 
 <h2></h2>
 
@@ -356,7 +356,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">identifier</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">此方块的标识符，必须包含名称与命名空间，且若不是修改原版方块，命名空间不能为"minecraft"</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该方块的标识符，必须包含名称与命名空间，且若不是修改原版方块，命名空间不能为"minecraft"</br></td>
 </tr>
 </table>
 <a href="#索引">回到顶部</a><br><br>
@@ -548,7 +548,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">set_block</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">将此方块变为其他方块</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">将该方块变为其他方块</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">block_type</td>
@@ -563,7 +563,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">set_block_at_pos</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">在此方块的关联坐标放置另一方块</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<td style="border-style:solid; border-width:3; padding:7px">在该方块的关联坐标放置另一方块</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">block_offset</td>
@@ -714,7 +714,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -747,7 +747,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -774,7 +774,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -801,7 +801,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -828,7 +828,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -855,7 +855,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>
@@ -882,7 +882,7 @@
 <td style="border-style:solid; border-width:2; padding:8px">condition</td>
 <td style="border-style:solid; border-width:2; padding:8px">字符串</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
-<td style="border-style:solid; border-width:2; padding:8px">对此方块执行事件的条件</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">对该方块执行事件的条件</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">event</td>

@@ -27,7 +27,7 @@
 <h1><p id="动画控制器">动画控制器</p></h1>
 
 <h2></h2>
-Animation Controller Format:<br / ><textarea readonly="true" cols="59" rows="24">
+动画控制器格式：<br / ><textarea readonly="true" cols="59" rows="24">
 {
   "format_version": "1.10.0",
   "animation_controllers": {
@@ -56,11 +56,11 @@ Animation Controller Format:<br / ><textarea readonly="true" cols="59" rows="24"
 
 <h1><p id="状态">状态</p></h1>
 
-Each state has an optional variables section, listing any number of variables that referenced animations can use.  Each state also has one or more animations, using the name given in the entity's definition json.</br><h2></h2>
+每个状态都有一个可选的variables部分，可以将引用自实体定义中的动画能够使用的任意多个变量列在此处。每个状态还可以具有一个或多个动画，它们使用实体定义json文件中给出的短名称。</br><h2></h2>
 
 <h2><p id="状态变量">状态变量</p></h2>
 
-  Variables have their value set by a Molang Expression.  They can also have their value remapped via a linearly-interpolated curve.</br><h3></h3>
+  它们的值既可以由Molang表达式定义，也可以由其它变量经过线性插值曲线重新映射成新的值。</br><h3></h3>
 
 <h3><p id="示例：">示例：</p></h3>
 
@@ -422,7 +422,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h1><p id="Key Frames">关键帧</p></h1>
 
-一个关键帧对在指定时间特定骨骼上的特定通道的变换定义了两个值，一个是迫近该关键帧时间时的终值，另一个是在关键帧时间达到之后的初值。</br>同样的，当插值在两个关键帧之间时，你可以以连续或不连续的方式定义动画曲线的斜率。</br><h1><p id="插值">插值</p></h1>
+一个关键帧对在指定时间特定骨骼上的特定通道的变换定义了两个值，一个是迫近该关键帧时间时的终值，另一个是在关键帧时间达到之后的初值。</br>同样的，当插值在两个关键帧之间时，你可以以其斜率连续或不连续的方式定义动画变换曲线。</br><h1><p id="插值">插值</p></h1>
 
 <h2></h2>
 
@@ -442,7 +442,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h2><p id="不连续的示例">不连续的示例</p></h2>
 
-This example scales the bone "head":</br>1. From 0 to 0.5 seconds (in the "pre" tag), the head bone is set to its normal scale of 1 in all dimensions [X, Y, Z]</br>2. At 0.5 seconds, the bone will instantly scale up to 2 times its normal size</br>3. From 0.5 to 1 second ("post"), the bone will re-scale back to its normal size of scale of 1 in all dimensions</br></br>Note In the larger example above of the file format, "pre" and "post" can also be defined by a Molang expression that calculates that value at runtime, allowing you to have a mathematically defined curve instead of being purely linear.</br><h3></h3>
+这个例子缩放了“head”骨骼:</br>1. 从0到0.5秒（在“pre”标签处），head骨骼在所有的[X, Y, Z]三个方向上被设置为其正常尺寸1</br>2. 在0.5秒时，head骨骼会立刻变为其正常大小的2倍</br>3. 从0.5到1秒（“post”处）,骨头在三个方向上重新缩放回到正常尺寸1</br></br>注意上面介绍文件格式的那个更长的示例里，“pre”和“post”也可以被定义为一个Molang表达式，它可以在运行时中计算其值，这允许你用数学关系定义一个曲线，而非纯粹的线性变换。</br><h3></h3>
 <br / ><textarea readonly="true" cols="24" rows="10">
 "head": {
   "scale": {
