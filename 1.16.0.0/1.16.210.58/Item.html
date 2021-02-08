@@ -20,13 +20,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:armor</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">护甲物品组件决定护甲物品的护甲值</br><h3><p id="protection">protection</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">护甲类物品组件。定义护甲装备后给予的护甲值。</br><h3><p id="protection">protection</p></h3>
 
-护甲的护甲值</br><a href="#Index">回到顶部</a><br><br>
+护甲装备后给予的护甲值。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="texture_type">texture_type</p></h3>
 
-护甲的材质类型。注意，马鞍仅限于leather，iron，gold或diamond</br><a href="#Index">回到顶部</a><br><br>
+护甲的材质类型。注意，马铠仅能使用leather，iron，gold或diamond。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -34,13 +34,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:block_placer</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">放置类物品。放置类物品指可以放置其他对象的物品。</br><h3><p id="block">block</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">交换类物品组件。用于定义该物品使用后放置的方块。</br><h3><p id="block">block</p></h3>
 
-方块：设置将要放置的方块名称。</br><a href="#Index">回到顶部</a><br><br>
+要放置的方块的标识符。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="use_on">use_on</p></h3>
 
-可以使用这个物品的方块描述符的列表，如果为空，所有方块都将被允许。</br><a href="#Index">回到顶部</a><br><br>
+描述该方块可以放置于哪些方块上的方块标识符列表。如果为空则该方块可以被放置在任何方块上。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -48,13 +48,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:cooldown</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">定义物品冷却时间。通过在此组件里定义'cool down time'来设置物品的最小使用间隔</br><h3><p id="category">category</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">定义物品冷却时间。</br><h3><p id="category">category</p></h3>
 
-物品的冷却类型</br><a href="#Index">回到顶部</a><br><br>
+物品的冷却类型。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="duration">duration</p></h3>
 
-在这个物品能够再次使用前的冷却时间</br><a href="#Index">回到顶部</a><br><br>
+这个物品能够再次使用前的冷却时间。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -62,13 +62,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:digger</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">挖掘类物品。拥有此组件的物品可用于挖掘。</br><h3><p id="destroy_speeds">destroy_speeds</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">挖掘类物品组件。用于定义物品的挖掘属性。</br><h3><p id="destroy_speeds">destroy_speeds</p></h3>
 
-方块的挖掘速度</br><a href="#Index">回到顶部</a><br><br>
+方块的挖掘速度。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="on_dig">on_dig</p></h3>
 
-对不在destroy_speeds中的方块挖掘时的触发器</br><a href="#Index">回到顶部</a><br><br>
+对不在destroy_speeds中的方块挖掘时的触发器。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="use_efficiency">use_efficiency</p></h3>
 
@@ -80,9 +80,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">显示名称组件。定义物品的显示名称</br><h3><p id="value">value</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">渲染类物品组件。用于定义物品的显示名称。</br><h3><p id="value">value</p></h3>
 
-设置物品的显示名称</br><a href="#Index">回到顶部</a><br><br>
+设置物品的显示名称。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -90,13 +90,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:durability</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">物品耐久度组件。定义物品在损坏前的最大耐久度</br><h3><p id="damage_chance">damage_chance</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">物品耐久类物品组件。用于定义物品的物品耐久。</br><h3><p id="damage_chance">damage_chance</p></h3>
 
 耐久度消耗概率</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="max_durability">max_durability</p></h3>
 
-最大耐久度，即物品在损坏前能承受的最大损伤</br><a href="#Index">回到顶部</a><br><br>
+最大物品耐久。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -104,9 +104,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:dye_powder</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">染料。一共有16种染料</br><h3><p id="color">color</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">染料类物品组件。</br><h3><p id="color">color</p></h3>
 
-定义物品是什么染料</br><a href="#Index">回到顶部</a><br><br>
+物品为何种颜色的染料。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -114,9 +114,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:entity_placer</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">生物蛋组件。你可以指定可放置的方块</br><h3><p id="dispense_on">dispense_on</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">交互类物品组件。定义该物品使用后生成的实体。</br><h3><p id="dispense_on">dispense_on</p></h3>
 
-可以使这个物品被发射时放置实体的方块描述符的列表，如果为空，所有方块都将被允许。</br><a href="#Index">回到顶部</a><br><br>
+描述该实体可以被发射器生成于哪些方块上的方块标识符列表。如果为空则该实体可以被发射器生成在任何方块上。</br></h3>
 
 <h3><p id="entity">entity</p></h3>
 
@@ -124,7 +124,7 @@
 
 <h3><p id="use_on">use_on</p></h3>
 
-可以使用这个物品的方块描述符的列表，能够如果为空，所有方块都将被允许。</br><a href="#Index">回到顶部</a><br><br>
+描述该实体可以被玩家生成于哪些方块上的方块标识符列表。如果为空则该实体可以被玩家生成在任何方块上。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -132,25 +132,26 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:food</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">当物品拥有食物组件时，玩家可食用物品</br><h3><p id="can_always_eat">can_always_eat</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">食物类物品组件。定义该物品使用后的部分效果。</br><h3><p id="can_always_eat">can_always_eat</p></h3>
 
-为true时你可以随时吃此物品（满饥饿值时也可），默认为false</br><a href="#Index">回到顶部</a><br><br>
+是否可以在饥饿值满时使用，默认为false</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="nutrition">nutrition</p></h3>
 
-食物给予玩家的饥饿值</br><a href="#Index">回到顶部</a><br><br>
+使用后给予的饥饿值。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="on_consume">on_consume</p></h3>
 
-<a href="#Index">回到顶部</a><br><br>
+物品被使用后触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="saturation_modifier">saturation_modifier</p></h3>
 
-在应用饱和度buff时，饱和度修饰符在这个公式中使用：（饥饿值*饱和度修饰符*2）。当你吃东西的时候会发生这种情况。</br><a href="#Index">回到顶部</a><br><br>
+提供一个饱和度修饰符以间接定义该物品的饱和度。</br>
+（该物品提供的饱和度=该物品给予的饥饿值*饱和度修饰符*2）</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="using_converts_to">using_converts_to</p></h3>
 
-当物品被使用时，转换为'using_converts_to'定义的物品</br><a href="#Index">回到顶部</a><br><br>
+定义该物品被使用后将转化的物品</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -158,9 +159,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:fuel</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">燃料组件。允许该物品作为燃料在熔炉中燃烧。</br><h3><p id="duration">duration</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">可燃类物品组件。允许该物品作为燃料在熔炉中燃烧。</br><h3><p id="duration">duration</p></h3>
 
-燃料持续时长（秒）</br><a href="#Index">回到顶部</a><br><br>
+该物品可提供的熔炉燃烧时长（秒）。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -168,17 +169,18 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:icon</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">icon物品组件决定了物品在UI里或其他地方如何显示</br><h3><p id="frame">frame</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">渲染类物品组件。定义该物品的材质。</br><h3><p id="frame">frame</p></h3>
 
-决定显示的icon的索引或表达式。默认为0</br><a href="#Index">回到顶部</a><br><br>
+决定该物品显示的材质的索引或表达式。默认为0。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="legacy_id">legacy_id</p></h3>
 
-老旧物品icon的遗产材质</br><a href="#Index">回到顶部</a><br><br>
+材质更新前的物品材质标识符。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="texture">texture</p></h3>
 
-来自于resource_pack/textures/item_texture.json中和图像文件关联的'texture_data'对象。举例：blaze_powder</br><a href="#Index">回到顶部</a><br><br>
+该物品的物品材质标识符。</br>
+该标识符被定义于resource_pack/textures/item_texture.json中和图像文件关联的'texture_data'对象。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -186,9 +188,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:knockback_resistance</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">击退抗性物品。拥有此组件的物品提供击退抗性</br><h3><p id="protection">protection</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">护甲类物品组件。定义物品提供的击退抗性。</br><h3><p id="protection">protection</p></h3>
 
-提供的击退抗性值，最大为1.0</br><a href="#Index">回到顶部</a><br><br>
+该物品装备后提供的击退抗性。最大值为1.0。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -196,9 +198,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:on_use</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">此组件允许你在使用物品时触发事件</br><h3><p id="on_use">on_use</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">监听类物品组件。此组件允许你在使用物品时触发事件。</br><h3><p id="on_use">on_use</p></h3>
 
-物品被使用时启用的事件触发器</br><a href="#Index">回到顶部</a><br><br>
+物品被使用时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -206,9 +208,9 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:on_use_on</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">此组件允许你在对方块使用此物品时触发事件</br><h3><p id="on_use_on">on_use_on</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">监听类物品组件。此组件允许你在对方块使用此物品时触发事件。</br><h3><p id="on_use_on">on_use_on</p></h3>
 
-物品被使用时启用的事件触发器</br><a href="#Index">回到顶部</a><br><br>
+物品被使用时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -216,13 +218,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:projectile</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">抛射物物品组件。将物品以抛射物射出，比如箭。</br><h3><p id="minimum_critical_power">minimum_critical_power</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">弹射物类物品组件。该组件会将该物品与弹射物实体绑定。</br><h3><p id="minimum_critical_power">minimum_critical_power</p></h3>
 
-最小暴击伤害</br><a href="#Index">回到顶部</a><br><br>
+弹射物暴击需要的蓄力时间。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="projectile_entity">projectile_entity</p></h3>
 
-发射的抛射物实体</br><a href="#Index">回到顶部</a><br><br>
+该物品绑定的弹射物实体。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -230,13 +232,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:render_offsets</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">渲染偏移组件：设置物品的渲染偏移值</br><h3><p id="main_hand">main_hand</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">渲染类物品组件。定义该物品的渲染偏移值。</br><h3><p id="main_hand">main_hand</p></h3>
 
-右手转变数据</br><a href="#Index">回到顶部</a><br><br>
+主手渲染偏移值。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="off_hand">off_hand</p></h3>
 
-左手转变数据</br><a href="#Index">回到顶部</a><br><br>
+副手渲染偏移值。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -244,13 +246,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:repairable</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">修复物品组件：定义可用于修复该物品的物品与修复值</br><h3><p id="on_repaired">on_repaired</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">物品耐久类物品组件。定义可用于修复该物品的物品与可修复的物品耐久。</br><h3><p id="on_repaired">on_repaired</p></h3>
 
-在物品被修复时触发的事件</br><a href="#Index">回到顶部</a><br><br>
+在物品被修复时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="repair_items">repair_items</p></h3>
 
-修复物品条目</br><a href="#Index">回到顶部</a><br><br>
+可以用于修复该物品的物品列表。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -318,17 +320,17 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:weapon</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">武器物品组件。加入到每个武器当中，例如斧、剑、三叉戟、十字弩、弓。</br><h3><p id="on_hit_block">on_hit_block</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">监听类物品组件。用于触发物品的攻击事件和显示物品的伤害加成。</br><h3><p id="on_hit_block">on_hit_block</p></h3>
 
-在此物品击打方块时触发</br><a href="#Index">回到顶部</a><br><br>
+该物品击中方块时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="on_hurt_entity">on_hurt_entity</p></h3>
 
-在此物品使实体受伤时触发</br><a href="#Index">回到顶部</a><br><br>
+该物品对实体造成伤害时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="on_not_hurt_entity">on_not_hurt_entity</p></h3>
 
-在此物品击打实体但未使实体受伤时触发</br><a href="#Index">回到顶部</a><br><br>
+该物品击中实体但未造成伤害时触发的事件。</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -336,12 +338,13 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:wearable</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">可穿戴物品组件</br><h3><p id="dispensable">dispensable</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">交互类物品组件。</br><h3><p id="dispensable">dispensable</p></h3>
 
 <a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="slot">slot</p></h3>
 
+该物品可放入的槽位。</br>
 装备槽：slot.weapon.mainhand, slot.weapon.offhand, slot.armor.head, slot.armor.chest, slot.armor.legs, slot.armor.feet, slot.hotbar, slot.inventory, slot.enderchest, slot.saddle, slot.armor, slot.chest</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
@@ -386,19 +389,19 @@
 <td style="border-style:solid; border-width:3; padding:7px">category</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">物品的分类，分类用于控制物品集成到基岩引擎中的最高位置属性，例如其是否能够用于指令</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">物品的分类。用于定义物品在创造模式物品栏中的分类。若为"command"则仅能通过命令获取而不放入创造模式物品栏。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">identifier</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">物品的标识符，必须包含名称与命名空间，且若不是修改原版物品，命名空间不能为"minecraft"</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">物品的标识符。必须包含名称与命名空间，且若不是修改原版物品，命名空间不能为"minecraft"</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">is_experimental</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px">false</td>
-<td style="border-style:solid; border-width:3; padding:7px">如果此物品为实验性，将仅在开启了实验性玩法的世界中注册</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该物品是否需要开启实验性玩法。</br></td>
 </tr>
 </table>
 <a href="#Index">回到顶部</a><br><br>
