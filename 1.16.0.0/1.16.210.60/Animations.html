@@ -1,4 +1,4 @@
-<h1>动画文档</br>版本：1.16.210.60</h1>
+<h1>动画文档 </br>版本：1.16.210.60</h1>
 这是Minecraft测试版的文档。本版本中的新特性、组件和功能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
 <h2><p id="Index">索引</p></h2>
 <table border="1">
@@ -280,7 +280,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h1><p id="从v1.7测试版升级到v1.8">从v1.7测试版升级到v1.8</p></h1>
 
-要升级旧的<a href="https://wiki.adodoz.cn/Molang">Molang</a>脚本，你需要按照顺序对所有脚本执行以下步骤：</br>1) entity.flags.foo --> query.foo</br>2) entity.member.foo --> query.foo</br>3) entity.foo --> variable.foo</br>4) params.foo --> global.foo</br>5) 总的规律是：“query”表示运行脚本的实体的只读数据，而“variable”表示由用户创建的可读可写的数据。</br>6) 游戏已经可以使用snake_case蛇形命名法来命名变量了。由于我们的游戏大小写敏感，所以只要你愿意，你依旧可以使用大写字母，但是我们建议一般情况下使用snake_case格式.</br>7) 之前设定的一些变量已经更改为query.foo格式。请浏览下方的更新内容列表来查看新内容和更改。</br><a href="#Index">返回顶部</a><br><br>
+要升级旧的Molang脚本，你需要按照顺序对所有脚本执行以下步骤：</br>1) entity.flags.foo --> query.foo</br>2) entity.member.foo --> query.foo</br>3) entity.foo --> variable.foo</br>4) params.foo --> global.foo</br>5) 总的规律是：“query”表示运行脚本的实体的只读数据，而“variable”表示由用户创建的可读可写的数据。</br>6) 游戏已经可以使用snake_case蛇形命名法来命名变量了。由于我们的游戏大小写敏感，所以只要你愿意，你依旧可以使用大写字母，但是我们建议一般情况下使用snake_case格式.</br>7) 之前设定的一些变量已经更改为query.foo格式。请浏览下方的更新内容列表来查看新内容和更改。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="从v1.8测试版升级到v1.10">从v1.8测试版升级到v1.10</p></h1>
 
@@ -466,7 +466,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h1><p id="Overview">概述</p></h1>
 
-以下是当前<a href="https://wiki.adodoz.cn/动画">动画</a>的Minecraft JSON范例：</br>- 字段中的字母一律使用小写，并使用下划线而非空格</br>- 动画定义索引及其子索引中的所有JSON文件都将读取到动画系统并被系统解释</br><a href="#Index">返回顶部</a><br><br>
+以下是当前动画的Minecraft JSON范例：</br>- 字段中的字母一律使用小写，并使用下划线而非空格</br>- 动画定义索引及其子索引中的所有JSON文件都将读取到动画系统并被系统解释</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Render Controllers">渲染控制器</p></h1>
 
