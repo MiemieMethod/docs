@@ -1,11 +1,11 @@
-<h1>µØÎïÎÄµµ </br>°æ±¾£º1.16.220.51</h1>
-ÕâÊÇMinecraft²âÊÔ°æµÄÎÄµµ¡£±¾°æ±¾ÖĞµÄĞÂÌØĞÔ¡¢×é¼şºÍ¹¦ÄÜ²»´ú±í×îÖÕ°æ±¾£¬¿ÉÄÜÔÚ×îÖÕ°æ±¾·¢²¼Ç°·¢Éú±ä»¯¶ø²»ÁíĞĞÍ¨Öª¡£<br/>Èç¹ûÄúµÄ¸½¼Ó°ü²»ÄÜÕı³£¹¤×÷£¬ÇëÎñ±ØÔÚÓÎÏ·×ß³ö²âÊÔºó¼ì²éÎÄµµ¡£Îª²âÊÔ°æ´´½¨µÄ×ÊÔ´°üºÍĞĞÎª°ü²»ÄÜ±£Ö¤ÔÚ×îÖÕ°æ±¾ÖĞÓĞĞ§¡£<br/>
-<h2><p id="Index">Ë÷Òı</p></h2>
+<h1>åœ°ç‰©æ–‡æ¡£ </br>ç‰ˆæœ¬ï¼š1.16.220.51</h1>
+è¿™æ˜¯Minecraftæµ‹è¯•ç‰ˆçš„æ–‡æ¡£ã€‚æœ¬ç‰ˆæœ¬ä¸­çš„æ–°ç‰¹æ€§ã€ç»„ä»¶å’ŒåŠŸèƒ½ä¸ä»£è¡¨æœ€ç»ˆç‰ˆæœ¬ï¼Œå¯èƒ½åœ¨æœ€ç»ˆç‰ˆæœ¬å‘å¸ƒå‰å‘ç”Ÿå˜åŒ–è€Œä¸å¦è¡Œé€šçŸ¥ã€‚<br/>å¦‚æœæ‚¨çš„é™„åŠ åŒ…ä¸èƒ½æ­£å¸¸å·¥ä½œï¼Œè¯·åŠ¡å¿…åœ¨æ¸¸æˆèµ°å‡ºæµ‹è¯•åæ£€æŸ¥æ–‡æ¡£ã€‚ä¸ºæµ‹è¯•ç‰ˆåˆ›å»ºçš„èµ„æºåŒ…å’Œè¡Œä¸ºåŒ…ä¸èƒ½ä¿è¯åœ¨æœ€ç»ˆç‰ˆæœ¬ä¸­æœ‰æ•ˆã€‚<br/>
+<h2><p id="Index">ç´¢å¼•</p></h2>
 <table border="1">
-<tr> <th><a href="#Overview">¸ÅÊö</a></th> </tr>
-<tr> <th><a href="#JSON format">JSON¸ñÊ½</a></th> </tr>
-<tr> <th><a href="#Adding features">Ìí¼ÓµØÎï</a></th> </tr>
-<tr> <th><a href="#Supported features">Ö§³ÖµÄµØÎï</a></th> </tr>
+<tr> <th><a href="#Overview">æ¦‚è¿°</a></th> </tr>
+<tr> <th><a href="#JSON format">JSONæ ¼å¼</a></th> </tr>
+<tr> <th><a href="#Adding features">æ·»åŠ åœ°ç‰©</a></th> </tr>
+<tr> <th><a href="#Supported features">æ”¯æŒçš„åœ°ç‰©</a></th> </tr>
 <tr> <td> <a href="#minecraft:aggregate_feature">minecraft:aggregate_feature</a> </tr> </td>
 <tr> <td> <a href="#minecraft:sequence_feature">minecraft:sequence_feature</a> </tr> </td>
 <tr> <td> <a href="#minecraft:cave_carver_feature">minecraft:cave_carver_feature</a> </tr> </td>
@@ -18,17 +18,17 @@
 <tr> <td> <a href="#minecraft:underwater_cave_carver_feature">minecraft:underwater_cave_carver_feature</a> </tr> </td>
 <tr> <td> <a href="#minecraft:tree_feature">minecraft:tree_feature</a> </tr> </td>
 <tr> <td> <a href="#minecraft:weighted_random_feature">minecraft:weighted_random_feature</a> </tr> </td>
-<tr> <th><a href="#Attaching features">¸½½ÓµØÎï</a></th> </tr>
-<tr> <th><a href="#Feature rules">µØÎï¹æÔò</a></th> </tr>
-<tr> <th><a href="#Feature rule schema">µØÎï¹æÔòÄ£Ê½</a></th> </tr>
-<tr> <th><a href="#Forced features">Ç¿ÖÆĞÍµØÎï</a></th> </tr>
+<tr> <th><a href="#Attaching features">é™„æ¥åœ°ç‰©</a></th> </tr>
+<tr> <th><a href="#Feature rules">åœ°ç‰©è§„åˆ™</a></th> </tr>
+<tr> <th><a href="#Feature rule schema">åœ°ç‰©è§„åˆ™æ¨¡å¼</a></th> </tr>
+<tr> <th><a href="#Forced features">å¼ºåˆ¶å‹åœ°ç‰©</a></th> </tr>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a>
-<h1><p id="Overview">¸ÅÊö</p></h1>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a>
+<h1><p id="Overview">æ¦‚è¿°</p></h1>
 
-Features are decorations scattered throughout the world. Things such as trees, plants, flowers, springs, ore, and coral are all features. Basically, if it isn't the terrain or a mob, it's probably a feature!</br>Features can be standalone or composed of multiple sub-features. In practice, most features in Minecraft are defined as a chain of two or more features. These chains typically end with features that place blocks in the world. Other feature types control flow such as conditional, sequential, or random distribution.</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Features are decorations scattered throughout the world. Things such as trees, plants, flowers, springs, ore, and coral are all features. Basically, if it isn't the terrain or a mob, it's probably a feature!</br>Features can be standalone or composed of multiple sub-features. In practice, most features in Minecraft are defined as a chain of two or more features. These chains typically end with features that place blocks in the world. Other feature types control flow such as conditional, sequential, or random distribution.</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="JSON format">JSON¸ñÊ½</p></h1>
+<h1><p id="JSON format">JSONæ ¼å¼</p></h1>
 
 All features must specify the version that they target via the "format_version" field. The remainder of the data is contained in independet JSON sub-objects for each supported feature type. These feature types define the behavior of the feature and include properties specific to that behavior. To be valid, a definition must include exactly one of these type objects. See the full feature schema below for additional details and the full list of supported feature types.</br><h2></h2>
 Here is a sample feature<br / ><textarea readonly="true" cols="49" rows="16">
@@ -48,13 +48,13 @@ Here is a sample feature<br / ><textarea readonly="true" cols="49" rows="16">
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Adding features">Ìí¼ÓµØÎï</p></h1>
+<h1><p id="Adding features">æ·»åŠ åœ°ç‰©</p></h1>
 
-Features are read from JSON files in the "features" subfolder of behavior packs. Loading enforces one feature per file; the file name and the name of the feature must match. Feature names can include a namespace of the form "namespace:feature_name" to help distinguish them from features that may be in other behavior packs. This namespace is not considered when matching the filename to the feature name. For example, in a file called "my_tree_feature.json" both "my_tree_feature" and "my_pack_name:my_tree_feature" would be valid identifiers. If two behavior packs define the same feature name (including namespace), then the feature from the highest pack in the stack will be used. This allows users to override base features if desired.</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Features are read from JSON files in the "features" subfolder of behavior packs. Loading enforces one feature per file; the file name and the name of the feature must match. Feature names can include a namespace of the form "namespace:feature_name" to help distinguish them from features that may be in other behavior packs. This namespace is not considered when matching the filename to the feature name. For example, in a file called "my_tree_feature.json" both "my_tree_feature" and "my_pack_name:my_tree_feature" would be valid identifiers. If two behavior packs define the same feature name (including namespace), then the feature from the highest pack in the stack will be used. This allows users to override base features if desired.</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Supported features">Ö§³ÖµÄµØÎï</p></h1>
+<h1><p id="Supported features">æ”¯æŒçš„åœ°ç‰©</p></h1>
 
 <h1><p id="minecraft:aggregate_feature">minecraft:aggregate_feature</p></h1>
 
@@ -74,7 +74,7 @@ Example use: scattering multiple different plants around a monument.<br / ><text
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:sequence_feature">minecraft:sequence_feature</p></h1>
 
@@ -93,7 +93,7 @@ Example use: Scattering fruit throughout the canopy of a tree.<br / ><textarea r
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:cave_carver_feature">minecraft:cave_carver_feature</p></h1>
 
@@ -147,7 +147,7 @@ Example use: Oil deposits in the sand.<br / ><textarea readonly="true" cols="50"
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:scatter_feature">minecraft:scatter_feature</p></h1>
 
@@ -174,7 +174,7 @@ Example use: Scattering flowers at sea level across half the chunks in a biome.<
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:search_feature">minecraft:search_feature</p></h1>
 
@@ -195,7 +195,7 @@ Example use: Attaching apples to a tree canopy<br / ><textarea readonly="true" c
     "required_successes": 3
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:single_block_feature">minecraft:single_block_feature</p></h1>
 
@@ -219,7 +219,7 @@ Example use: Placing a single pumpkin block.<br / ><textarea readonly="true" col
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:structure_template_feature">minecraft:structure_template_feature</p></h1>
 
@@ -245,7 +245,7 @@ Example use: Place a hot air balloon structure that "floats" in the air.<br / ><
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:underwater_cave_carver_feature">minecraft:underwater_cave_carver_feature</p></h1>
 
@@ -267,7 +267,7 @@ Example use: Carve caves normally.<br / ><textarea readonly="true" cols="70" row
 
 <h1><p id="minecraft:tree_feature">minecraft:tree_feature</p></h1>
 
-Feature type 'minecraft:tree_feature' has not yet been documented.</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Feature type 'minecraft:tree_feature' has not yet been documented.</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h1><p id="minecraft:weighted_random_feature">minecraft:weighted_random_feature</p></h1>
 
@@ -288,7 +288,7 @@ Example use: Selecting and placing a variant of a flower.<br / ><textarea readon
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h2>Feature schema</h2>
 Here is the complete feature schema<br / ><textarea readonly="true" cols="192" rows="32">
@@ -919,11 +919,11 @@ Here is the complete feature schema<br / ><textarea readonly="true" cols="192" r
 </textarea> </br>
 <br><br>
 
-<h1><p id="Attaching features">¸½½ÓµØÎï</p></h1>
+<h1><p id="Attaching features">é™„æ¥åœ°ç‰©</p></h1>
 
-Features must be attached to at least one biome in order to show up in the world. During world generation, biomes attempt to place their attached features chunk-by-chunk. Features can be attached in two ways:</br>1) Via a feature rule definition</br>2) Via the "minecraft:forced_features" biome component</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Features must be attached to at least one biome in order to show up in the world. During world generation, biomes attempt to place their attached features chunk-by-chunk. Features can be attached in two ways:</br>1) Via a feature rule definition</br>2) Via the "minecraft:forced_features" biome component</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Feature rules">µØÎï¹æÔò</p></h1>
+<h1><p id="Feature rules">åœ°ç‰©è§„åˆ™</p></h1>
 
 Feature rules are separate JSON definition files found in the "feature_rules" subfolder of behavior packs. Feature rules follow the same filename rules as features. Each feature rule controls exactly one feature and serves as the root of a chain of feature data. To attach a feature to a biome with a feature rule, the "conditions" object must include the "minecraft:biome_filter" field. This is a list of filter tests that are performed on each biome to determine if the feature should be attached. Most relevant is the "has_biome_tag" test.</br><h2></h2>
 Here is a sample feature rule<br / ><textarea readonly="true" cols="69" rows="32">
@@ -967,9 +967,9 @@ Here is a sample feature rule<br / ><textarea readonly="true" cols="69" rows="32
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Feature rule schema">µØÎï¹æÔòÄ£Ê½</p></h1>
+<h1><p id="Feature rule schema">åœ°ç‰©è§„åˆ™æ¨¡å¼</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="192" rows="32">
@@ -1038,9 +1038,9 @@ Here is a sample feature rule<br / ><textarea readonly="true" cols="69" rows="32
   }
 
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Forced features">Ç¿ÖÆĞÍµØÎï</p></h1>
+<h1><p id="Forced features">å¼ºåˆ¶å‹åœ°ç‰©</p></h1>
 
-Features attached with the second method are called "forced" or "explicit" features. Unlike feature rules, forced features are not defined in separate JSON files. Instead, they are specified in the existing biome JSON definitions via the "minecraft:forced_features" component. Like feature rules, this component includes fields that define when features should be placed ("placement_pass") and how they should be scattered ("distribution"). For more information about biome components (including the complete JSON schema), consult the biome documentation.</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Features attached with the second method are called "forced" or "explicit" features. Unlike feature rules, forced features are not defined in separate JSON files. Instead, they are specified in the existing biome JSON definitions via the "minecraft:forced_features" component. Like feature rules, this component includes fields that define when features should be placed ("placement_pass") and how they should be scattered ("distribution"). For more information about biome components (including the complete JSON schema), consult the biome documentation.</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
