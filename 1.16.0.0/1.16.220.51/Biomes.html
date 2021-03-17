@@ -1,18 +1,18 @@
-<h1>BIOMES DOCUMENTATION </br>Version: 1.16.220.51</h1>
-This is documentation for a beta release of Minecraft. New features, components, and capabilities in this release are not final and might change without notice before the final release.<br/>Be sure to check the documentation once the release is out of beta if your add-on isn't working properly. Resource and Behavior Packs created for the beta are not guaranteed to work on the final release.<br/>
-<h2><p id="Index">Index</p></h2>
+<h1>生物群系文档 </br>版本：1.16.220.51</h1>
+这是Minecraft测试版的文档。本版本中的新特性、组件和功能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
+<h2><p id="Index">索引</p></h2>
 <table border="1">
-<tr> <th><a href="#Overview">Overview</a></th> </tr>
-<tr> <th><a href="#JSON format">JSON format</a></th> </tr>
-<tr> <th><a href="#Adding biomes">Adding biomes</a></th> </tr>
-<tr> <th><a href="#Schema">Schema</a></th> </tr>
+<tr> <th><a href="#Overview">概述</a></th> </tr>
+<tr> <th><a href="#JSON format">JSON格式</a></th> </tr>
+<tr> <th><a href="#Adding biomes">添加生物群系</a></th> </tr>
+<tr> <th><a href="#Schema">模式</a></th> </tr>
 </table>
-<a href="#Index">Back to top</a>
-<h1><p id="Overview">Overview</p></h1>
+<a href="#Index">返回顶部</a>
+<h1><p id="Overview">概述</p></h1>
 
-Biomes describe how a local patch of the world should look and behave. By writing custom biome data you could:</br>1) Change the general shape of terrain for a biome.</br>2) Change the ratio of frequency of biome types.</br>3) Change the blocks that make up the biome, both at the surface and below.</br>4) Change the distribution of decorative features (e.g. trees, grass, etc.) for a biome.</br>5) Change the mobs that spawn for a biome.</br>6) Change the climate for a biome.</br>7) ...and more!</br><a href="#Index">Back to top</a><br><br>
+Biomes describe how a local patch of the world should look and behave. By writing custom biome data you could:</br>1) Change the general shape of terrain for a biome.</br>2) Change the ratio of frequency of biome types.</br>3) Change the blocks that make up the biome, both at the surface and below.</br>4) Change the distribution of decorative features (e.g. trees, grass, etc.) for a biome.</br>5) Change the mobs that spawn for a biome.</br>6) Change the climate for a biome.</br>7) ...and more!</br><a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="JSON format">JSON format</p></h1>
+<h1><p id="JSON format">JSON格式</p></h1>
 
 All biomes should specify the version that they target via the "format_version" field. The remainder of the biome data is divided up into independent JSON sub-objects, or components. In general you can think of the presence of a component as defining what game behaviors a biome participates in with the component fields defining how it participates. Broadly there are two categories of components:</br>1) Namespaced components (i.e. those with a 'name:' prefix) map to specific behaviors in-game; they may have member fields that parameterize that behavior; only names that have a valid mapping are supported.</br>2) Components with no namespace are treated as 'tags': any name consisting of alphanumeric characters, '.' and '_' is permitted; the tag is attached to the biome so that either code or data may check for its existence; tag components may not have member fields.</br></br>See the full biome schema below for additional details and the full list of namespaced components.</br><h2></h2>
 Here is a sample biome<br / ><textarea readonly="true" cols="51" rows="32">
@@ -55,13 +55,13 @@ Here is a sample biome<br / ><textarea readonly="true" cols="51" rows="32">
   }
 }
 </textarea> </br>
-<a href="#Index">Back to top</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Adding biomes">Adding biomes</p></h1>
+<h1><p id="Adding biomes">添加生物群系</p></h1>
 
-Biomes are read from JSON files in the biomes subfolders of behavior packs. Loading enforces one biome per file; the file name and the actual biome name must match. Adding a file with a new name to the biome data location will make it available for the game to use, while existing biomes can be overriden via files that match their existing name. Note that if you add a new biome you'll need to write component data that allows it to participate in world generation (see full schema below), or else it won't show up in your worlds!</br><a href="#Index">Back to top</a><br><br>
+Biomes are read from JSON files in the biomes subfolders of behavior packs. Loading enforces one biome per file; the file name and the actual biome name must match. Adding a file with a new name to the biome data location will make it available for the game to use, while existing biomes can be overriden via files that match their existing name. Note that if you add a new biome you'll need to write component data that allows it to participate in world generation (see full schema below), or else it won't show up in your worlds!</br><a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Schema">Schema</p></h1>
+<h1><p id="Schema">模式</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="192" rows="32">
