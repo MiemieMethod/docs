@@ -1,16 +1,16 @@
-<h1>UIÎÄµµ </br>°æ±¾£º1.16.220.51</h1>
-ÕâÊÇMinecraft²âÊÔ°æµÄÎÄµµ¡£±¾°æ±¾ÖĞµÄĞÂÌØĞÔ¡¢×é¼şºÍ¹¦ÄÜ²»´ú±í×îÖÕ°æ±¾£¬¿ÉÄÜÔÚ×îÖÕ°æ±¾·¢²¼Ç°·¢Éú±ä»¯¶ø²»ÁíĞĞÍ¨Öª¡£<br/>Èç¹ûÄúµÄ¸½¼Ó°ü²»ÄÜÕı³£¹¤×÷£¬ÇëÎñ±ØÔÚÓÎÏ·×ß³ö²âÊÔºó¼ì²éÎÄµµ¡£Îª²âÊÔ°æ´´½¨µÄ×ÊÔ´°üºÍĞĞÎª°ü²»ÄÜ±£Ö¤ÔÚ×îÖÕ°æ±¾ÖĞÓĞĞ§¡£<br/>
-<h2><p id="Index">Ë÷Òı</p></h2>
+<h1>UIæ–‡æ¡£ </br>ç‰ˆæœ¬ï¼š1.16.220.51</h1>
+è¿™æ˜¯Minecraftæµ‹è¯•ç‰ˆçš„æ–‡æ¡£ã€‚æœ¬ç‰ˆæœ¬ä¸­çš„æ–°ç‰¹æ€§ã€ç»„ä»¶å’ŒåŠŸèƒ½ä¸ä»£è¡¨æœ€ç»ˆç‰ˆæœ¬ï¼Œå¯èƒ½åœ¨æœ€ç»ˆç‰ˆæœ¬å‘å¸ƒå‰å‘ç”Ÿå˜åŒ–è€Œä¸å¦è¡Œé€šçŸ¥ã€‚<br/>å¦‚æœæ‚¨çš„é™„åŠ åŒ…ä¸èƒ½æ­£å¸¸å·¥ä½œï¼Œè¯·åŠ¡å¿…åœ¨æ¸¸æˆèµ°å‡ºæµ‹è¯•åæ£€æŸ¥æ–‡æ¡£ã€‚ä¸ºæµ‹è¯•ç‰ˆåˆ›å»ºçš„èµ„æºåŒ…å’Œè¡Œä¸ºåŒ…ä¸èƒ½ä¿è¯åœ¨æœ€ç»ˆç‰ˆæœ¬ä¸­æœ‰æ•ˆã€‚<br/>
+<h2><p id="Index">ç´¢å¼•</p></h2>
 <table border="1">
-<tr> <th><a href="#Scripting System">½Å±¾ÏµÍ³</a></th> </tr>
-<tr> <td> <a href="#Getting The Script Engine">»ñÈ¡½Å±¾ÒıÇæ</a> </tr> </td>
-<tr> <td> <a href="#Engine Bindings">ÒıÇæ°ó¶¨</a> </tr> </td>
-<tr> <td> <a href="#Script Bindings">½Å±¾°ó¶¨</a> </tr> </td>
+<tr> <th><a href="#Scripting System">è„šæœ¬ç³»ç»Ÿ</a></th> </tr>
+<tr> <td> <a href="#Getting The Script Engine">è·å–è„šæœ¬å¼•æ“</a> </tr> </td>
+<tr> <td> <a href="#Engine Bindings">å¼•æ“ç»‘å®š</a> </tr> </td>
+<tr> <td> <a href="#Script Bindings">è„šæœ¬ç»‘å®š</a> </tr> </td>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a>
-<h1><p id="Scripting System">½Å±¾ÏµÍ³</p></h1>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a>
+<h1><p id="Scripting System">è„šæœ¬ç³»ç»Ÿ</p></h1>
 
-The custom UI for Minecraft is based on HTML 5.</br>You can write JavaScript within the HTML file to listen and respond to events from the UI Engine. These events can be triggered by the UI Engine itself or you can trigger them from your scripts.</br>In order to use custom UI, the resource pack containing the custom UI needs to have the custom UI capabilities enabled. To do this, simply add "experimental_custom_ui" to the capabilities array in the pack's manifest. You can check the Turn-Based RPG demo for an example of how to do this.</br><h1><p id="Getting The Script Engine">»ñÈ¡½Å±¾ÒıÇæ</p></h1>
+The custom UI for Minecraft is based on HTML 5.</br>You can write JavaScript within the HTML file to listen and respond to events from the UI Engine. These events can be triggered by the UI Engine itself or you can trigger them from your scripts.</br>In order to use custom UI, the resource pack containing the custom UI needs to have the custom UI capabilities enabled. To do this, simply add "experimental_custom_ui" to the capabilities array in the pack's manifest. You can check the Turn-Based RPG demo for an example of how to do this.</br><h1><p id="Getting The Script Engine">è·å–è„šæœ¬å¼•æ“</p></h1>
 
 The engine.on() function needs to listen for the event "facet:updated:scripting" and you need to store the return value.</br>You will then need to request the script engine by triggering the "facet:request" event and passing it "scripting" in a vector.</br>The order of the calls is important. If you trigger the request before you registered the listener you won't be able to capture the callback.</br><h2>Example of how to capture the Script Engine:</h2>
 <br / ><textarea readonly="true" cols="59" rows="6">
@@ -20,9 +20,9 @@ engine.on("facet:updated:scripting", function(interface) {
 });
 engine.trigger("facet:request", ["scripting"]);
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Engine Bindings">ÒıÇæ°ó¶¨</p></h1>
+<h1><p id="Engine Bindings">å¼•æ“ç»‘å®š</p></h1>
 
 <h2></h2>
 
@@ -30,7 +30,7 @@ engine.trigger("facet:request", ["scripting"]);
 
 <h3></h3>
 
-<h3><p id="Parameters">²ÎÊı</p></h3>
+<h3><p id="Parameters">å‚æ•°</p></h3>
 
 <h4></h4>
 
@@ -47,7 +47,7 @@ engine.trigger("facet:request", ["scripting"]);
 <td style="border-style:solid; border-width:1; padding:9px">Specifies the event that function will react to</br></td>
 </tr>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h3>Example of how to listen for events from a client script:</h3>
 <br / ><textarea readonly="true" cols="62" rows="3">
@@ -60,7 +60,7 @@ engine.on("exampleEventIdentifier", function (exampleData) {
 
 <h3></h3>
 
-<h3><p id="Parameters">²ÎÊı</p></h3>
+<h3><p id="Parameters">å‚æ•°</p></h3>
 
 <h4></h4>
 
@@ -77,7 +77,7 @@ engine.on("exampleEventIdentifier", function (exampleData) {
 <td style="border-style:solid; border-width:1; padding:9px">Specifies the event that function will react to</br></td>
 </tr>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h3>Example of how to send an event to the UI engine:</h3>
 <br / ><textarea readonly="true" cols="59" rows="2">
@@ -87,7 +87,7 @@ engine.trigger("exampleEventIdentifier", eventDataObject);
 
 <br><br>
 
-<h1><p id="Script Bindings">½Å±¾°ó¶¨</p></h1>
+<h1><p id="Script Bindings">è„šæœ¬ç»‘å®š</p></h1>
 
 <h2></h2>
 
@@ -95,7 +95,7 @@ engine.trigger("exampleEventIdentifier", eventDataObject);
 
 <h3></h3>
 
-<h3><p id="Parameters">²ÎÊı</p></h3>
+<h3><p id="Parameters">å‚æ•°</p></h3>
 
 <h4></h4>
 
@@ -107,7 +107,7 @@ engine.trigger("exampleEventIdentifier", eventDataObject);
 <td style="border-style:solid; border-width:1; padding:9px">This string will be sent to "minecraft:ui_event" event in client scripts</br></td>
 </tr>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
 <h3>Example of how to send events to a client script:</h3>
 <br / ><textarea readonly="true" cols="57" rows="2">

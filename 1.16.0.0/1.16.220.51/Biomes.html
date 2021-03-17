@@ -1,18 +1,18 @@
-<h1>ÉúÎïÈºÏµÎÄµµ </br>°æ±¾£º1.16.220.51</h1>
-ÕâÊÇMinecraft²âÊÔ°æµÄÎÄµµ¡£±¾°æ±¾ÖĞµÄĞÂÌØĞÔ¡¢×é¼şºÍ¹¦ÄÜ²»´ú±í×îÖÕ°æ±¾£¬¿ÉÄÜÔÚ×îÖÕ°æ±¾·¢²¼Ç°·¢Éú±ä»¯¶ø²»ÁíĞĞÍ¨Öª¡£<br/>Èç¹ûÄúµÄ¸½¼Ó°ü²»ÄÜÕı³£¹¤×÷£¬ÇëÎñ±ØÔÚÓÎÏ·×ß³ö²âÊÔºó¼ì²éÎÄµµ¡£Îª²âÊÔ°æ´´½¨µÄ×ÊÔ´°üºÍĞĞÎª°ü²»ÄÜ±£Ö¤ÔÚ×îÖÕ°æ±¾ÖĞÓĞĞ§¡£<br/>
-<h2><p id="Index">Ë÷Òı</p></h2>
+<h1>ç”Ÿç‰©ç¾¤ç³»æ–‡æ¡£ </br>ç‰ˆæœ¬ï¼š1.16.220.51</h1>
+è¿™æ˜¯Minecraftæµ‹è¯•ç‰ˆçš„æ–‡æ¡£ã€‚æœ¬ç‰ˆæœ¬ä¸­çš„æ–°ç‰¹æ€§ã€ç»„ä»¶å’ŒåŠŸèƒ½ä¸ä»£è¡¨æœ€ç»ˆç‰ˆæœ¬ï¼Œå¯èƒ½åœ¨æœ€ç»ˆç‰ˆæœ¬å‘å¸ƒå‰å‘ç”Ÿå˜åŒ–è€Œä¸å¦è¡Œé€šçŸ¥ã€‚<br/>å¦‚æœæ‚¨çš„é™„åŠ åŒ…ä¸èƒ½æ­£å¸¸å·¥ä½œï¼Œè¯·åŠ¡å¿…åœ¨æ¸¸æˆèµ°å‡ºæµ‹è¯•åæ£€æŸ¥æ–‡æ¡£ã€‚ä¸ºæµ‹è¯•ç‰ˆåˆ›å»ºçš„èµ„æºåŒ…å’Œè¡Œä¸ºåŒ…ä¸èƒ½ä¿è¯åœ¨æœ€ç»ˆç‰ˆæœ¬ä¸­æœ‰æ•ˆã€‚<br/>
+<h2><p id="Index">ç´¢å¼•</p></h2>
 <table border="1">
-<tr> <th><a href="#Overview">¸ÅÊö</a></th> </tr>
-<tr> <th><a href="#JSON format">JSON¸ñÊ½</a></th> </tr>
-<tr> <th><a href="#Adding biomes">Ìí¼ÓÉúÎïÈºÏµ</a></th> </tr>
-<tr> <th><a href="#Schema">Ä£Ê½</a></th> </tr>
+<tr> <th><a href="#Overview">æ¦‚è¿°</a></th> </tr>
+<tr> <th><a href="#JSON format">JSONæ ¼å¼</a></th> </tr>
+<tr> <th><a href="#Adding biomes">æ·»åŠ ç”Ÿç‰©ç¾¤ç³»</a></th> </tr>
+<tr> <th><a href="#Schema">æ¨¡å¼</a></th> </tr>
 </table>
-<a href="#Index">·µ»Ø¶¥²¿</a>
-<h1><p id="Overview">¸ÅÊö</p></h1>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a>
+<h1><p id="Overview">æ¦‚è¿°</p></h1>
 
-Biomes describe how a local patch of the world should look and behave. By writing custom biome data you could:</br>1) Change the general shape of terrain for a biome.</br>2) Change the ratio of frequency of biome types.</br>3) Change the blocks that make up the biome, both at the surface and below.</br>4) Change the distribution of decorative features (e.g. trees, grass, etc.) for a biome.</br>5) Change the mobs that spawn for a biome.</br>6) Change the climate for a biome.</br>7) ...and more!</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Biomes describe how a local patch of the world should look and behave. By writing custom biome data you could:</br>1) Change the general shape of terrain for a biome.</br>2) Change the ratio of frequency of biome types.</br>3) Change the blocks that make up the biome, both at the surface and below.</br>4) Change the distribution of decorative features (e.g. trees, grass, etc.) for a biome.</br>5) Change the mobs that spawn for a biome.</br>6) Change the climate for a biome.</br>7) ...and more!</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="JSON format">JSON¸ñÊ½</p></h1>
+<h1><p id="JSON format">JSONæ ¼å¼</p></h1>
 
 All biomes should specify the version that they target via the "format_version" field. The remainder of the biome data is divided up into independent JSON sub-objects, or components. In general you can think of the presence of a component as defining what game behaviors a biome participates in with the component fields defining how it participates. Broadly there are two categories of components:</br>1) Namespaced components (i.e. those with a 'name:' prefix) map to specific behaviors in-game; they may have member fields that parameterize that behavior; only names that have a valid mapping are supported.</br>2) Components with no namespace are treated as 'tags': any name consisting of alphanumeric characters, '.' and '_' is permitted; the tag is attached to the biome so that either code or data may check for its existence; tag components may not have member fields.</br></br>See the full biome schema below for additional details and the full list of namespaced components.</br><h2></h2>
 Here is a sample biome<br / ><textarea readonly="true" cols="51" rows="32">
@@ -55,13 +55,13 @@ Here is a sample biome<br / ><textarea readonly="true" cols="51" rows="32">
   }
 }
 </textarea> </br>
-<a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+<a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Adding biomes">Ìí¼ÓÉúÎïÈºÏµ</p></h1>
+<h1><p id="Adding biomes">æ·»åŠ ç”Ÿç‰©ç¾¤ç³»</p></h1>
 
-Biomes are read from JSON files in the biomes subfolders of behavior packs. Loading enforces one biome per file; the file name and the actual biome name must match. Adding a file with a new name to the biome data location will make it available for the game to use, while existing biomes can be overriden via files that match their existing name. Note that if you add a new biome you'll need to write component data that allows it to participate in world generation (see full schema below), or else it won't show up in your worlds!</br><a href="#Index">·µ»Ø¶¥²¿</a><br><br>
+Biomes are read from JSON files in the biomes subfolders of behavior packs. Loading enforces one biome per file; the file name and the actual biome name must match. Adding a file with a new name to the biome data location will make it available for the game to use, while existing biomes can be overriden via files that match their existing name. Note that if you add a new biome you'll need to write component data that allows it to participate in world generation (see full schema below), or else it won't show up in your worlds!</br><a href="#Index">è¿”å›é¡¶éƒ¨</a><br><br>
 
-<h1><p id="Schema">Ä£Ê½</p></h1>
+<h1><p id="Schema">æ¨¡å¼</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="192" rows="32">
