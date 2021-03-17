@@ -1,35 +1,35 @@
-<h1>PARTICLES DOCUMENTATION </br>Version: 1.16.210.61</h1>
+<h1>粒子文档 </br>版本：1.16.210.61</h1>
 这是Minecraft测试版的文档。本版本中的新特性、组件和功能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
-<h2><p id="Index">Index</p></h2>
+<h2><p id="Index">索引</p></h2>
 <table border="1">
-<tr> <th><a href="#Basic Structure Overview">Basic Structure Overview</a></th> </tr>
-<tr> <th><a href="#Component Concept">Component Concept</a></th> </tr>
-<tr> <th><a href="#Current Component List">Current Component List</a></th> </tr>
+<tr> <th><a href="#Basic Structure Overview">基本结构概述</a></th> </tr>
+<tr> <th><a href="#Component Concept">组件概念</a></th> </tr>
+<tr> <th><a href="#Current Component List">当前组件列表</a></th> </tr>
 <tr> <td> <a href="#"> </a> </tr> </td>
-<tr> <td> <a href="#Emitter Components"> Emitter Components</a> </tr> </td>
-<tr> <td> <a href="#Particle Components"> Particle Components</a> </tr> </td>
-<tr> <th><a href="#Curves">Curves</a></th> </tr>
-<tr> <th><a href="#Events">Events</a></th> </tr>
-<tr> <th><a href="#Examples">Examples</a></th> </tr>
-<tr> <td> <a href="#Flame particle"> Flame particle</a> </tr> </td>
-<tr> <td> <a href="#Smoke particle"> Smoke particle</a> </tr> </td>
-<tr> <td> <a href="#Mob Flame effect"> Mob Flame effect</a> </tr> </td>
-<tr> <td> <a href="#Bouncing Bubbles"> Bouncing Bubbles</a> </tr> </td>
-<tr> <th><a href="#MoLang integration">MoLang integration</a></th> </tr>
+<tr> <td> <a href="#Emitter Components">发射器组件</a> </tr> </td>
+<tr> <td> <a href="#Particle Components">粒子组件</a> </tr> </td>
+<tr> <th><a href="#Curves">曲线</a></th> </tr>
+<tr> <th><a href="#Events">事件</a></th> </tr>
+<tr> <th><a href="#Examples">示例</a></th> </tr>
+<tr> <td> <a href="#Flame particle">火焰粒子</a> </tr> </td>
+<tr> <td> <a href="#Smoke particle">烟雾粒子</a> </tr> </td>
+<tr> <td> <a href="#Mob Flame effect">生物火焰粒子</a> </tr> </td>
+<tr> <td> <a href="#Bouncing Bubbles">弹跳气泡</a> </tr> </td>
+<tr> <th><a href="#MoLang integration">MoLang集成</a></th> </tr>
 <tr> <td> <a href="#"> </a> </tr> </td>
-<tr> <th><a href="#Namespacing">Namespacing</a></th> </tr>
-<tr> <th><a href="#Particles Entity Integration">Particles Entity Integration</a></th> </tr>
+<tr> <th><a href="#Namespacing">命名空间</a></th> </tr>
+<tr> <th><a href="#Particles Entity Integration">粒子实体集成</a></th> </tr>
 <tr> <td> <a href="#"> </a> </tr> </td>
-<tr> <td> <a href="#Animation Controller effects"> Animation Controller effects</a> </tr> </td>
-<tr> <td> <a href="#Animation Timeline effects"> Animation Timeline effects</a> </tr> </td>
-<tr> <td> <a href="#Effect Event"> Effect Event</a> </tr> </td>
-<tr> <td> <a href="#Effect List"> Effect List</a> </tr> </td>
-<tr> <th><a href="#Particles Examples Pack">Particles Examples Pack</a></th> </tr>
+<tr> <td> <a href="#Animation Controller effects">动画控制器效果</a> </tr> </td>
+<tr> <td> <a href="#Animation Timeline effects">动画时间轴效果</a> </tr> </td>
+<tr> <td> <a href="#Effect Event">效果事件</a> </tr> </td>
+<tr> <td> <a href="#Effect List">效果列表</a> </tr> </td>
+<tr> <th><a href="#Particles Examples Pack">粒子示例包</a></th> </tr>
 <tr> <td> <a href="#"> </a> </tr> </td>
-<tr> <th><a href="#Structure In Detail">Structure In Detail</a></th> </tr>
+<tr> <th><a href="#Structure In Detail">详细的文件结构</a></th> </tr>
 </table>
 <a href="#Index">Back to top</a>
-<h1><p id="Basic Structure Overview">Basic Structure Overview</p></h1>
+<h1><p id="Basic Structure Overview">基本结构概述</p></h1>
 
 Particle effects consist of basic render parameters, and a set of components.  Components can be placed in any order.</br><h2></h2>
 Outline:<br / ><textarea readonly="true" cols="119" rows="32">
@@ -72,11 +72,11 @@ Outline:<br / ><textarea readonly="true" cols="119" rows="32">
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Component Concept">Component Concept</p></h1>
+<h1><p id="Component Concept">组件概念</p></h1>
 
 The particle system is component based.  What this means is that particle effects are composed via a set of components.  In order for an effect to do something, you add a component that handles that aspect of the effect.  For example, an emitter usually needs to have rules for its lifetime, thus the effect should have one or more lifetime components that handle lifetime duties for the emitter and emitted particles.</br></br>The idea is that new components can be added later, and one can combine components (where it makes sense) to get different behaviors. A particle might have a Dynamic component for moving around, and a Collision component for handling interaction with the terrain, for example.</br></br>Think of components as telling the particle system what you want the emitter or particle to do, rather than exposing a list of particle parameters and having to wrangle those parameters to get the desired behavior.</br><a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Current Component List">Current Component List</p></h1>
+<h1><p id="Current Component List">当前组件列表</p></h1>
 
 <h2></h2>
 For fields in these components, the following shorthand is used:<br / ><textarea readonly="true" cols="107" rows="7">
@@ -89,7 +89,7 @@ For fields in these components, the following shorthand is used:<br / ><textarea
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Emitter Components">Emitter Components</p></h1>
+<h1><p id="Emitter Components">发射器组件</p></h1>
 
 <h2></h2>
 
@@ -419,7 +419,7 @@ For fields in these components, the following shorthand is used:<br / ><textarea
 
 <br><br>
 
-<h1><p id="Particle Components">Particle Components</p></h1>
+<h1><p id="Particle Components">粒子组件</p></h1>
 
 <h2></h2>
 
@@ -801,7 +801,7 @@ For fields in these components, the following shorthand is used:<br / ><textarea
 
 <br><br>
 
-<h1><p id="Curves">Curves</p></h1>
+<h1><p id="Curves">曲线</p></h1>
 
 Curves are interpolation values, with inputs from 0 to 1, and outputs based on the curve.  The result of the curve is a MoLang variable of the same name that can be referenced in MoLang in components.  For each rendering frame for each particle, the curves are evaluated and the result is placed in a MoLang variable of the name of the curve.</br><h2></h2>
 <br / ><textarea readonly="true" cols="120" rows="32">
@@ -860,7 +860,7 @@ Curves are interpolation values, with inputs from 0 to 1, and outputs based on t
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Events">Events</p></h1>
+<h1><p id="Events">事件</p></h1>
 
 Events can be triggered elsewhere in the .json and fire off new particle and sound effects.</br></br>Particle effects have different types. If the type is "emitter", this will create an emitter of "effect" type at the event's world position, in a fire-and-forget way.  "emitter_bound" works similarly, except if the spawning emitter is bound to an actor/locator, the new emitter will be bound to the same actor/locator.  If the type is "particle", then the event will manually emit a particle on an emitter of "effect" type at the event location, creating the emitter if it doesn't already exist (be sure to use "minecraft:emitter_rate_manual" for the spawned emitter effect). "particle_with_velocity" will do the same as "particle" except the new particle will inherit the spawning particle's velocity.</br></br>Sound effects specify the specific "level sound event" to be played when the event fires.</br></br>The events themselves consist of an optional node tree and/or an actual event.  When "sequence" is specified, that array will execute in order, with every element executing when that event fires.  When using "random", one element will be picked from the array based on the weight.</br><h2></h2>
 <br / ><textarea readonly="true" cols="117" rows="32">
@@ -935,9 +935,9 @@ Events can be triggered elsewhere in the .json and fire off new particle and sou
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Examples">Examples</p></h1>
+<h1><p id="Examples">示例</p></h1>
 
-<h1><p id="Flame particle">Flame particle</p></h1>
+<h1><p id="Flame particle">火焰粒子</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="81" rows="32">
@@ -987,7 +987,7 @@ Events can be triggered elsewhere in the .json and fire off new particle and sou
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Smoke particle">Smoke particle</p></h1>
+<h1><p id="Smoke particle">烟雾粒子</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="121" rows="32">
@@ -1049,7 +1049,7 @@ Events can be triggered elsewhere in the .json and fire off new particle and sou
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Mob Flame effect">Mob Flame effect</p></h1>
+<h1><p id="Mob Flame effect">生物火焰粒子</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="63" rows="32">
@@ -1112,7 +1112,7 @@ Events can be triggered elsewhere in the .json and fire off new particle and sou
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Bouncing Bubbles">Bouncing Bubbles</p></h1>
+<h1><p id="Bouncing Bubbles">弹跳气泡</p></h1>
 
 <h2></h2>
 <br / ><textarea readonly="true" cols="100" rows="32">
@@ -1175,7 +1175,7 @@ Events can be triggered elsewhere in the .json and fire off new particle and sou
 
 <br><br>
 
-<h1><p id="MoLang integration">MoLang integration</p></h1>
+<h1><p id="MoLang integration">MoLang集成</p></h1>
 
 Where it makes sense, any field can use a MoLang expression. MoLang expressions are strings, and are defined in the MoLang documentation.  The particle system uses some special MoLang variables that particle MoLang expressions can use.  Additionally, custom MoLang paramaters can be set in various ways and used in MoLang expressions in effects.</br><h2></h2>
 
@@ -1238,11 +1238,11 @@ Where it makes sense, any field can use a MoLang expression. MoLang expressions 
 
 <br><br>
 
-<h1><p id="Namespacing">Namespacing</p></h1>
+<h1><p id="Namespacing">命名空间</p></h1>
 
 All particle effects should be namespaced (in their name).</br></br>Namespacing involves adding a 'name:' prefix on the effect tag.</br></br>Regular Minecraft will use the 'minecraft: prefix.  See the examples for example names.</br><a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Particles Entity Integration">Particles Entity Integration</p></h1>
+<h1><p id="Particles Entity Integration">粒子实体集成</p></h1>
 
 </br>One of the primary uses for emitting particles in the Bedrock engine is particles associated with entities, such as mobs.  Examples can be when the Blaze flames-up during it's attack sequence, or the Evoker's spell effect while summoning Vexes.  The goal is to allow binding and management of particle effects attached to entities.</br></br>The following concepts are important for managing particles with entities via .json:</br>- Effect lists.  These live in the resource definition of the entity's .json, along with textures, etc.  These list the effects available to the entity, with an internal entity name for the effect, and the associated effect to play.</br>- Locators.  These live in the geometry files, and specify a location in the geometry.  These locators can be associated with bones, and thus follow the bone as it animates.</br>- Animation controller-based particle management.  Using the Animation Controller state machine concept, one can trigger both fire-and-forget and sustained particle effects</br>- Animation timeline particle management.  As part of an animation .json for the entity, one can set up a timeline that triggers particle effects at specified times while the animation is playing.  Note that an actual physical animation is not needed, just the animation .json structure.</br></br>Particles that are attached to entities are intrinsically tied to those entities.  If the entity ceases to exist, the particle effects cease as well.  Emitters follow either the entity, or a locator on the entity.</br>time1/time2/etc are numerical time points, e.g. "0.0". </br></br>In this example, when the cat sits down, after 3 seconds a smoke puff is generated:</br><h2></h2>
 <br / ><textarea readonly="true" cols="35" rows="25">
@@ -1273,7 +1273,7 @@ All particle effects should be namespaced (in their name).</br></br>Namespacing 
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Animation Controller effects">Animation Controller effects</p></h1>
+<h1><p id="Animation Controller effects">动画控制器效果</p></h1>
 
 </br>Animation controllers can specify effect events for their states.  This allows for a list of particle effects to be started upon state entry, and for those particle effects to be automatically ended when leaving the state.  For particles that don't terminate (or don't terminate prior to state transition), they will be terminated at state exit.</br></br>The schema is:</br>"particle_effects": [</br>    // array of effect events</br>]</br>The array syntax allows for more than one effect to be triggered on state entry.</br></br>An example is the Blaze's flame-up effect in it's animation controller. This animation controller has two states, "default" and "flaming".  It transitions between the two via the "query.is_charged" entity flag check.  When in the "flaming" state, the "charged_flames" effect is started (with no locator or initialization MoLang expression), and is terminated when the state exits.</br><h2></h2>
 <br / ><textarea readonly="true" cols="47" rows="32">
@@ -1312,7 +1312,7 @@ All particle effects should be namespaced (in their name).</br></br>Namespacing 
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Animation Timeline effects">Animation Timeline effects</p></h1>
+<h1><p id="Animation Timeline effects">动画时间轴效果</p></h1>
 
 Animations can also trigger particle effects.  These are fire-and-forget effects that are tied to a timeline, when the animation hits that time point, the effect(s) are fired.</br><h2></h2>
 <br / ><textarea readonly="true" cols="34" rows="14">
@@ -1332,7 +1332,7 @@ Animations can also trigger particle effects.  These are fire-and-forget effects
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Effect Event">Effect Event</p></h1>
+<h1><p id="Effect Event">效果事件</p></h1>
 
 </br>Particle events in the entity have the following properties:</br>- "effect" is the effect name specified in the entity's resource definition .json (the particle effect list), this specifies what particle effect to start/play</br>- "locator" is an optional parameter that maps to a locator of the same name in the resource definition.  By specifying a locator, the emitter will follow that locator around as the entity animates, including orientation.  If this is not specified, the effect will occur at the origin of the entity.</br>- "pre_effect_script" is an optional parameter that is a MoLang expression run at emitter startup time.  This can set up MoLang variables, (for example 'particle color'), which can be then referred to inside the particle effect .json itself.</br><h2></h2>
 <br / ><textarea readonly="true" cols="43" rows="8">
@@ -1346,7 +1346,7 @@ Animations can also trigger particle effects.  These are fire-and-forget effects
 </textarea> </br>
 <a href="#Index">Back to top</a><br><br>
 
-<h1><p id="Effect List">Effect List</p></h1>
+<h1><p id="Effect List">效果列表</p></h1>
 
 The effect list is a list of internal effect names to actual particle effects bindings. This is the general form for adding particle effects to an entity.  The effect list consists of a list of shorthand names to actual effects.  All references to effects will use the shorthand name in animations and animation controllers.  Note that this by itself will not cause the particle effect to appear.</br><h2></h2>
 <br / ><textarea readonly="true" cols="47" rows="17">
@@ -1371,7 +1371,7 @@ The effect list is a list of internal effect names to actual particle effects bi
 
 <br><br>
 
-<h1><p id="Particles Examples Pack">Particles Examples Pack</p></h1>
+<h1><p id="Particles Examples Pack">粒子示例包</p></h1>
 
 https://aka.ms/MCParticlesPack</br></br>Examples of various particles can be found in the link above.  These are examples of various stand-alone particle effects.  The particle effects provided as part of the Minecraft installation are tuned to be used with the Minecraft game, and thus do not serve as good examples.  Please refer to the examples in the pack to see various ways to utilize the particle system. </br></br>To invoke an example particle with the examples particles pack enabled, bring up the console, type "/particle name x y z" where "name" is the name of the particle effect, and x/y/z are the coordinates the particle appears at.</br></br>For example, "/particle minecraft:example_smoke_puff 0 5 0" will spawn a smoke puff at the origin of the world, 5 blocks up from the bottom of the world. </br>"/particle minecraft:example_smoke_puff ~ ~1 ~5" will create that smoke puff about 5 blocks away from the player.</br><h2>Example Effects</h2>
 
@@ -1458,7 +1458,7 @@ https://aka.ms/MCParticlesPack</br></br>Examples of various particles can be fou
 
 <br><br>
 
-<h1><p id="Structure In Detail">Structure In Detail</p></h1>
+<h1><p id="Structure In Detail">详细的文件结构</p></h1>
 
 <h2></h2>
 Outline:<br / ><textarea readonly="true" cols="100" rows="32">
