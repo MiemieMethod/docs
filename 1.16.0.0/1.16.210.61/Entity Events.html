@@ -1,15 +1,15 @@
-<h1>ENTITY EVENTS DOCUMENTATION </br>Version: 1.16.210.61</h1>
+<h1>实体事件文档 </br>文档：1.16.210.61</h1>
 这是Minecraft测试版的文档。本版本中的新特性、组件和功能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
-<h2><p id="Index">Index</p></h2>
+<h2><p id="Index">索引</p></h2>
 <table border="1">
-<tr> <th><a href="#Animation Controller Events">Animation Controller Events</a></th> </tr>
-<tr> <th><a href="#Animation Events">Animation Events</a></th> </tr>
-<tr> <th><a href="#Animation Notes">Animation Notes</a></th> </tr>
-<tr> <th><a href="#Events">Events</a></th> </tr>
-<tr> <th><a href="#General Notes">General Notes</a></th> </tr>
+<tr> <th><a href="#Animation Controller Events">动画控制器事件</a></th> </tr>
+<tr> <th><a href="#Animation Events">动画事件</a></th> </tr>
+<tr> <th><a href="#Animation Notes">关于动画的注解</a></th> </tr>
+<tr> <th><a href="#Events">事件</a></th> </tr>
+<tr> <th><a href="#General Notes">总注解</a></th> </tr>
 </table>
-<a href="#Index">Back to top</a>
-<h1><p id="Animation Controller Events">Animation Controller Events</p></h1>
+<a href="#Index">返回顶部</a>
+<h1><p id="Animation Controller Events">动画控制器事件</p></h1>
 
 </br>Animation controllers can trigger events on entry or exit of a state.  Events to trigger on state entry go in the "on_entry" section, those on exit go in the "on_exit" section.</br><h2></h2>
 <br / ><textarea readonly="true" cols="105" rows="23">
@@ -36,9 +36,9 @@
 }
 
 </textarea> </br>
-<a href="#Index">Back to top</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Animation Events">Animation Events</p></h1>
+<h1><p id="Animation Events">动画事件</p></h1>
 
 </br>Animations can have a timeline dedicated to events. The "timeline" section contains the event timeline list.  Below there are various examples where particular times can trigger a single event, or an array of events:</br><h2></h2>
 <br / ><textarea readonly="true" cols="68" rows="32">
@@ -76,9 +76,9 @@
 }
 
 </textarea> </br>
-<a href="#Index">Back to top</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Animation Notes">Animation Notes</p></h1>
+<h1><p id="Animation Notes">关于动画的注解</p></h1>
 
 </br>Entity events occur in animations, which normally occur on the client (via resource packs), but can also occur on the server (via behavior packs). As the server side of the game has no visual aspects to it, obviously no bone-based animations can occur.  However, a traditional animation is basically a timeline of events, with the events being bone positions for an animated visual rig that moves the entity's visual shape around.  The mechanisms for the Bedrock animation system are state machines (Animation Controllers), and timelines (Animations).  These concepts apply directly to the triggering of events, thus the animation system can execute on the server (minus the visual aspects), with the intent of driving entity events. </br></br>To use entity events on the server (in a behavior pack), add animation controllers and animations to a behavior pack just as you would to a resource pack.  Add animation and animation controllers to an "animations" section in the description field of an entity.  These animations and animation controllers will run on the server just as if they were on the client in a resource pack.  Add the "scripts" section with an "animate" subsection to specify which animations/animation-controllers to have run.</br></br>Client side (resource pack) events do not require special setup as the client side entities usually already have animations and animation controllers in place.  Just add your events where you need them in animations or animation controllers.</br><h2></h2>
 <br / ><textarea readonly="true" cols="106" rows="30">
@@ -112,9 +112,9 @@
 }
 
 </textarea> </br>
-<a href="#Index">Back to top</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Events">Events</p></h1>
+<h1><p id="Events">事件</p></h1>
 
 </br>Events consist of three categories, all represented by a string:</br>- Entity events</br>- Slash Commands</br>- MoLang Expressions</br></br>In detail:</br></br>Entity Events: Server side (behavior packs) only.  Currently, we only support entity events to self, and these take the form "@s event".  These are events declared in the events section of the entity definition file.  For example, in the cat.json, "minecraft:ageable_grow_up" event causes the kitten to grow up.  This would take the form of "@s minecraft:ageable_grow_up"</br></br>Slash commands: Server side (behavior packs) only.  Any slash command can be invoked, such as "/particle minecraft:example_smoke_puff ~ ~ ~".  The assumed entity for the slash command is the invoking entity, so this particular slash command will spawn a smoke puff effect at the entity's location.</br></br>MoLang Expressions: This executes a MoLang expression.  The primary usage is to set MoLang variables that can be used later.  For example, a state transition might be looking at a particluar MoLang variable, and this expression could change that variable.  A particle effect on the entity might change color due to MoLang variables that the effect uses for color tints.  An animation to move an arm might use a MoLang variable that was set by an animation event.</br><h2></h2>
 <br / ><textarea readonly="true" cols="95" rows="12">
@@ -130,9 +130,9 @@
 "variable.something_to_set = 3;"
 
 </textarea> </br>
-<a href="#Index">Back to top</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="General Notes">General Notes</p></h1>
+<h1><p id="General Notes">总注解</p></h1>
 
-</br>This document contains details for driving various events via entity .json data.  Entity events can go in both behavior and resource packs.  Behavior packs use the same animations and animation controllers setup that are used in resource packs, albeit with a different method in the entity .json itself to activate the animations.</br></br>Entity events are a way to drive gameplay and entity state changes in the Bedrock engine.  These events can typically include slash commands (behavior packs only), entity events (e.g. become an adult), and MoLang expressions (e.g. set the MoLang variable "variable.foo" to 3 on a particular entity).  Animations and Animation controllers provide a method for driving state machines and timelines for an entity.  For example, a particular animation controller could be in a particular state, and running a particular animation, and we want events triggered when entering/exiting that state.  Alternately, an "animation" could be running, and we wish to fire off events during that animation.  The entity event timeline mechanic makes this possible.</br><a href="#Index">Back to top</a><br><br>
+</br>This document contains details for driving various events via entity .json data.  Entity events can go in both behavior and resource packs.  Behavior packs use the same animations and animation controllers setup that are used in resource packs, albeit with a different method in the entity .json itself to activate the animations.</br></br>Entity events are a way to drive gameplay and entity state changes in the Bedrock engine.  These events can typically include slash commands (behavior packs only), entity events (e.g. become an adult), and MoLang expressions (e.g. set the MoLang variable "variable.foo" to 3 on a particular entity).  Animations and Animation controllers provide a method for driving state machines and timelines for an entity.  For example, a particular animation controller could be in a particular state, and running a particular animation, and we want events triggered when entering/exiting that state.  Alternately, an "animation" could be running, and we wish to fire off events during that animation.  The entity event timeline mechanic makes this possible.</br><a href="#Index">返回顶部</a><br><br>
 
