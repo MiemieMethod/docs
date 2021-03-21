@@ -18,19 +18,19 @@ Minecraft supports a Physically Based Rendering (PBR) color pipeline (e.g. used 
 
 A texture_set.json file may specify several layers.</br>Layers are references to texture image resources. they can also be defined in .json as values for uniform solid values as an alternative to referencing texture images in a pack.</br></br><h2></h2>
 
-<h2><p id="Color">颜色</p></h2>
+<h2><p id="Color">color</p></h2>
 
 - This is an RGB 3-channel image (defaults to uniform alpha of 1.0), or an RGBA 4-channel image, or a 4 value array for a uniform color with alpha.</br>- This is the only required layer.</br>- It is the only layer used by the Classic pipeline.</br>- Typically there is lighting baked in the color image.</br><a href="#Index">返回顶部</a><br><br>
 
-<h2><p id="Normal">法线</p></h2>
+<h2><p id="Normal">normal</p></h2>
 
 - 3-channel normal map image (or 4-channel where the 4th channel is ignored).</br>- Mutually exclusive with the `heightmap` layer.</br><a href="#Index">返回顶部</a><br><br>
 
-<h2><p id="Heightmap">高度图</p></h2>
+<h2><p id="Heightmap">heightmap</p></h2>
 
 - 1-channel layer image or a single value in json for a uniform heightmap.</br>- Mutually exclusive with the `normal` layer.</br><a href="#Index">返回顶部</a><br><br>
 
-<h2><p id="Metalness_emissive_roughness">金属度_自发光_粗糙度</p></h2>
+<h2><p id="Metalness_emissive_roughness">metalness_emissive_roughness</p></h2>
 
 - 3-channel image (or 4-channel where the 4th channel is ignored) or a 3 value array for a uniform MER.</br>- RGB images map Red to Metalness, Green to Emissive, and Blue to Roughness.</br><a href="#Index">返回顶部</a><br><br>
 
