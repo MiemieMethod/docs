@@ -217,7 +217,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 引擎可以分别跟踪一个动画的旋转、位置和缩放。在一个通道中，可以以秒为标度在从动画开始处之后的任意时刻指定一个或多个关键帧。如果没有指定关键帧，引擎将在t=0.0处创建一个单一的关键帧，所有的通道数据都存储在这个关键帧中。</br><a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="实体动画格式示例">实体动画格式示例</p></h1>
+<h1><p id="Entity Animation Format Examples">实体动画格式示例</p></h1>
 
 动画的json格式如下所示。注意：与几何的格式相一致，长度单位为1/16米。</br><h2></h2>
 <br / ><textarea readonly="true" cols="192" rows="32">
@@ -278,11 +278,11 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h1><p id="Getting Started">准备开始</p></h1>
 
-<h1><p id="从v1.7测试版升级到v1.8">从v1.7测试版升级到v1.8</p></h1>
+<h1><p id="Upgrade from v1.7 Beta to v1.8">从v1.7测试版升级到v1.8</p></h1>
 
 要升级旧的Molang脚本，你需要按照顺序对所有脚本执行以下步骤：</br>1) entity.flags.foo --> query.foo</br>2) entity.member.foo --> query.foo</br>3) entity.foo --> variable.foo</br>4) params.foo --> global.foo</br>5) 总的规律是：“query”表示运行脚本的实体的只读数据，而“variable”表示由用户创建的可读可写的数据。</br>6) 游戏已经可以使用snake_case蛇形命名法来命名变量了。由于我们的游戏大小写敏感，所以只要你愿意，你依旧可以使用大写字母，但是我们建议一般情况下使用snake_case格式.</br>7) 之前设定的一些变量已经更改为query.foo格式。请浏览下方的更新内容列表来查看新内容和更改。</br><a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="从v1.8测试版升级到v1.10">从v1.8测试版升级到v1.10</p></h1>
+<h1><p id="Upgrade from v1.8 Beta to v1.10">从v1.8测试版升级到v1.10</p></h1>
 
 - 动画现能够在任意深的层阶处引用其他动画。</br>- 动画控制器的参数部分已经被“variables”部分取代。</br>- 在实体定义文件中，动画控制器现在被列在“animations”部分，并且添加了“scripts animate”部分来定义要播放哪个根动画。</br>v1.8的文件格式是向后兼容至v1.10的，所以你<strong>无需</strong>进行任何改变（尽管我们建议按照v1.10的精神重构你的文件，因为新格式在性能上有一些优势，并且更易理解）。</br><a href="#Index">返回顶部</a><br><br>
 
@@ -341,7 +341,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 
 <h2><p id="Animation Controller">动画控制器</p></h2>
 
-尽管在实体的定义文件的“scripts/animate”部分就可以管理许多动画，动画控制器可以将动画附加到状态以实现状态机的功能，并进行分块控制。一个动画控制器状态下的动画也可以是其他的动画控制器，这允许你定义出任意复杂的动画层阶。</br><h3></h3>
+尽管在实体的定义文件的“scripts/animate”部分就可以管理许多动画，动画控制器可以给予你通过划分状态来进行动画的分块控制的状态机功能。动画控制器里每个状态中的动画都可以是其他的动画控制器自身，这允许你定义出任意复杂的动画层阶。</br><h3></h3>
 这是一个动画控制器的示例<br / ><textarea readonly="true" cols="58" rows="27">
 {
   "format_version": "1.10.0",
@@ -384,7 +384,7 @@ For example: <br / ><textarea readonly="true" cols="156" rows="18">
 </textarea> </br>
 <a href="#Index">返回顶部</a><br><br>
 
-<h3><p id="or a run-time interpreted script:">也可以是运行时解释的脚本：</p></h3>
+<h3><p id="or a run-time interpreted script:">也可以是在运行时中解释的脚本：</p></h3>
 
 <h4></h4>
 <br / ><textarea readonly="true" cols="80" rows="2">
