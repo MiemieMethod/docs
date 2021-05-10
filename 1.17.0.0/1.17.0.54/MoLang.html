@@ -38,83 +38,83 @@ MoLang是一种基于表达式的简单语言，设计用于在运行时中进�
 
 <h1><p id="Lexical Structure">词法结构</p></h1>
 
-The language structure is largely based on simple 'C' language family style syntax.  A script is made of either one expression for simple math calculations, or can be made of several statements where more complicated code is required.</br></br>In simple cases, the terminating `;` is omitted and the expression result is returned.  In complex cases (where there are multiple statements terminated with `;`s, `0.0` is returned unless there is a `return` statement, which will exit the current script scope returning the computed value of that return expression (exactly like C).</br><h1><p id="Case Sensitivity">大小写敏感性</p></h1>
+语言结构很大程度上基于简单的C语言家族风格语法。脚本可以由一个简单数学计算表达式构成。当需要更复杂的代码的时候，它也可以由多个语句组成。</br></br>在简单情形下，句末的`;`定界符需要省略，表达式的计算结果会被直接返回。在复杂情形下，也就是当有多个语句的句末皆以`;`定界时，若无`return`语句，将直接返回`0.0`；否则，`return`语句将起到退出当前的脚本作用域的作用，同时返回该语句表达式计算的值（就如同C语言一样）。</br><h1><p id="Case Sensitivity">大小写敏感性</p></h1>
 
-All things in molang are case-INsensitive, with the exception of strings, which maintain the case provided</br><a href="#Index">返回顶部</a><br><br>
+除了字符串保持大小写不会发生变化以外，MoLang中其余各处都是大小写<strong>不</strong>敏感的。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Keywords">关键字</p></h1>
 
-All identifiers not in a scope listed below are reserved for future use</br><h2></h2>
+所有不在下方列出的作用域中的标识符都保留以供将来使用。</br><h2></h2>
 
 <table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
 <tr> <th style="border-style:solid; border-width:3;">关键字</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`1.23`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Numerical constant value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">数值常量值</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`! && || < <= >= > == !=`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Logical operators</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">逻辑运算符</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`* / + -`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Basic math operators</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">基本数学运算符</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`(` `)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Parentheses for expression term evaluation control</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">控制表达式的项求值用的圆括号</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`{` `}`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Braces for execution scope</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">用于执行作用域的方括号</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`??`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Null coalescing operator, for handling missing variables or stale actor references</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">空合并运算符，用于处理丢失的变量和过时的活动对象引用</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`geometry.texture_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">A reference to a geometry named in the entity definition</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">一个在实体定义文件中命名的几何的引用</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`material.texture_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">A reference to a material named in the entity definition</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">一个在实体定义文件中命名的材质的引用</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.function_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Various math functions</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">各种数学函数</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`query.function_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Access to an entity's properties</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">访问一个实体的属性</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`temp.variable_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Read/write temporary storage</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">读取/写入暂时存储器</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`texture.texture_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">A reference to a texture named in the entity definition</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">一个在实体定义文件中命名的纹理的引用</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`variable.variable_name`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Read/write storage on an actor</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">读取/写入一个活动对象的存储器</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`<test> ? <if true> : <if false>`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Trinary conditional operator</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">三元条件运算符</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`<test> ? <if true>`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Binary conditional operator</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">二元条件运算符</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`this`</td>
-<td style="border-style:solid; border-width:3; padding:7px">The current value that this script will ultimately write to (context specific)</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">该脚本（在指定上下文的情况下）最终将写入的值的当前值</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`return`</td>
-<td style="border-style:solid; border-width:3; padding:7px">For complex expressions, this evaluates the following statement and stops execution of the script, returns the value computed</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">复杂表达式使用，这将计算其后的语句并停止脚本的执行，返回计算出的值</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`->`</td>
