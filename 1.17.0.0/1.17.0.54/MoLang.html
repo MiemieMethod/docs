@@ -149,7 +149,7 @@ MoLang是一种基于表达式的简单语言，设计用于在运行时中进�
 
 <h1><p id="Variables">变量</p></h1>
 
-一个变量的生命周期可以是以下三种之一：临时变量、实体变量和上下文变量：</br>- 临时变量（例如：`temp.moo = 1;`）是可读/可写的，并且依照C语言的规则，它们应在它们所定义的作用域中是有效的。出于性能原因，在当前的脚本执行中，临时变量的生存周期仍是全局的，并且可能在它们所定义的最外层作用域之外仍能返回一个有效值。故在复杂的脚本中要多加小心。我们将尽快为上述这种本应无效访问的情形添加内容日志错误。</br>- Entity variables (eg: `variable.moo = 1;`) are read/write and store their value on the entity for the lifetime of that entity.  Note that these are currently not saved, so quitting and reloading the world will re-initialize these.  In the same way, if the entity is despawned, any variables on the entity will be lost.实体变量（例如：`variable.moo = 1;`）是可读/可写的，并在实体的生命周期内将其值存储在实体上。请注意，当前这些变量都不会被保存，所以退出和重新加载世界将使它们重新初始化。同样，如果实体被despawn，实体上的任何变量都将丢失。</br>- Context variables (eg: `context.moo`) are read-only and valid for the script they are run on.  The game defines these, and details on what variables are in each will be available in the documentation of the area where that molang script exists (such as behaviours defining what context variables they expose).</br><a href="#Index">返回顶部</a><br><br>
+一个变量的生命周期可以是以下三种之一：临时变量、实体变量和上下文变量：</br>- 临时变量（例如：`temp.moo = 1;`）是可读/可写的，并且依照C语言的规则，它们应在它们所定义的作用域中是有效的。出于性能原因，在当前的脚本执行中，临时变量的生存周期仍是全局的，并且可能在它们所定义的最外层作用域之外仍能返回一个有效值。故在复杂的脚本中要多加小心。我们将尽快为上述这种本应无效访问的情形添加内容日志错误。</br>- 实体变量（例如：`variable.moo = 1;`）是可读/可写的，并在实体的生命周期内将其值存储在实体上。请注意，当前这些变量都不会被保存，所以退出和重新加载世界将使它们重新初始化。同样，如果实体从世界中消失，实体上的任何变量都将丢失。</br>- 上下文变量（例如：`context.moo`）是只读的，并且只对运行它们的脚本有效。游戏内部定义了这些变量，关于每种实体中都有哪些变量的细节可以在对应的文档中MoLang脚本所在区域找到（例如定义了它们所暴露的上下文变量的行为区域）。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Values">值</p></h1>
 
