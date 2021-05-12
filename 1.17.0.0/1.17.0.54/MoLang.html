@@ -175,11 +175,11 @@ MoLang是一种基于表达式的简单语言，设计用于在运行时中进�
 
 <h1><p id="Query Functions">查询函数</p></h1>
 
-Query functions (eg: `query.is_baby` or `query.is_item_equipped('main_hand')`) allow scripts to read game data.  If a query function takes no arguments, the parentheses are optional.  For a full list of query functions, see below.</br><a href="#Index">返回顶部</a><br><br>
+查询函数（例如：`query.is_baby`或`query.is_item_equipped('main_hand')`）允许脚本读取游戏数据。如果查询函数是无参的，圆括号可以省略不写。有关查询函数的完整列表见下方表格。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Aliases">别名</p></h1>
 
-To reduce typing burden and increase clarity when reading and writing molang, the following keyword aliases can make life a bit easier.  Note that left and right sides function identically.</br><h2></h2>
+为了减少书写MoLang时的打字负担和增加阅读时的清晰度，下列的关键字别名可以让你更加轻松。注意：同一行左右两边的功能是相同的。</br><h2></h2>
 
 <h2><p id="Alias Mapping">别名映射</p></h2>
 
@@ -206,7 +206,7 @@ To reduce typing burden and increase clarity when reading and writing molang, th
 </table>
 <a href="#Index">返回顶部</a><br><br>
 
-As an example...</br><a href="#Index">返回顶部</a><br><br>
+例如下方代码……</br><a href="#Index">返回顶部</a><br><br>
 
 <h3></h3>
 <br / ><textarea readonly="true" cols="102" rows="2">
@@ -214,7 +214,7 @@ math.cos(query.anim_time * 38) * variable.rotation_scale + variable.x * variable
 </textarea> </br>
 <a href="#Index">返回顶部</a><br><br>
 
-...can also be written as:</br><a href="#Index">返回顶部</a><br><br>
+……也可以写成这个样子：</br><a href="#Index">返回顶部</a><br><br>
 
 <h3></h3>
 <br / ><textarea readonly="true" cols="72" rows="2">
@@ -222,7 +222,7 @@ math.cos(q.anim_time * 38) * v.rotation_scale + v.x * v.x * q.life_time
 </textarea> </br>
 <a href="#Index">返回顶部</a><br><br>
 
-Either syntax will work, and can be intermixed as desired. eg:</br><a href="#Index">返回顶部</a><br><br>
+这两种语法都可以工作，并且可以根据需要混合使用。例如：</br><a href="#Index">返回顶部</a><br><br>
 
 <h3></h3>
 <br / ><textarea readonly="true" cols="90" rows="2">
@@ -234,7 +234,7 @@ math.cos(q.anim_time * 38) * variable.rotation_scale + v.x * variable.x * query.
 
 <h1><p id="Structs">结构体</p></h1>
 
-Structures of data, unlike C, are implicitly defined by usage.  Their purpose is to more efficiently pass data around, such as passing `v.location` rather than `v.x`, `v.y`, and `v.z`.  eg:</br><h2></h2>
+Structures of data, unlike C, are implicitly defined by usage.  Their purpose is to more efficiently pass data around, such as passing `v.location` rather than `v.x`, `v.y`, and `v.z`.  eg:与C语言不同，数据结构是通过使用方法隐式定义的。它们的目的是更有效地传递数据，例如传递' v。而不是“v”。x”、“v。y ', ' v.z '。例如:</br><h2></h2>
 
 <h3></h3>
 <br / ><textarea readonly="true" cols="65" rows="5">
