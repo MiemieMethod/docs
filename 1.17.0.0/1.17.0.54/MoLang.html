@@ -283,7 +283,7 @@ v.cowcow.friend = v.pigpig; v.pigpig->v.test.a.b.c = 1.23; v.moo = v.cowcow.frie
 
 <h1><p id="Strings">字符串</p></h1>
 
-Strings in molang are surrounded by single - quotes.Eg: 'minecraft:pig' or 'hello world!'.An empty string is defined as two back - to - back single quotes.  String operations only support `= = ` and `! = ` at this time.MoLang中的字符串是由单引号包住的。例如：'minecraft:pig'或'hello world!'。空字符串定义为两个紧挨着的的单引号。字符串操作当前只支持' = = '和' != '此时。</br>Note: strings don't support the ' character as there is no support for escape characters at this time.</br><a href="#Index">返回顶部</a><br><br>
+MoLang中的字符串是由单引号包住的。例如：'minecraft:pig'或'hello world!'。空字符串定义为两个紧挨着的的单引号。字符串运算当前只支持`==`和`!=`。</br>注意：字符串不支持'字符，因为目前尚不支持字符转义。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Math Functions">数学函数</p></h1>
 
@@ -293,27 +293,27 @@ Strings in molang are surrounded by single - quotes.Eg: 'minecraft:pig' or 'hell
 <tr> <th style="border-style:solid; border-width:3;">函数</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.abs(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Absolute value of value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">value的绝对值</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.acos(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">arccos of value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">value的反余弦</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.asin(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">arcsin of value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">value的反正弦</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.atan(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">arctan of value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">value的反正切</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.atan2(y, x)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">arctan of y/x.  NOTE: the order of arguments!</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">y/x.的反正切。<strong>注意</strong>：参数的顺序！</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.ceil(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Round value up to nearest integral number</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将value向上舍入到最接近的整数</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.clamp(value, min, max)`</td>
