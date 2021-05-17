@@ -155,7 +155,7 @@ MoLang是一种基于表达式的简单语言，设计用于在运行时中进�
 
 <h2></h2>
 
-</br>- 所有的数字值都是浮点数。</br>- 布尔值，比如活动对象旗标，都会被转换并存储为浮点值（0.0或1.0），分别表示false和true。</br>- 对于布尔测试，等于0.0的浮点值为假，不等于0.0的值为真。</br>- 对于数组下标，浮点数将采用C语言形式的强制转换转换为整型，当出现负数时提升为0，数字过大时跌落到与数组长度相同。</br>- 其它支持的类型有：</br><a href="#Index">返回顶部</a><br><br>
+</br>- 所有的数字值都是浮点数。</br>- 布尔值，比如活动对象旗标，都会被转换并存储为浮点值（0.0或1.0），分别表示false和true。</br>- 对于布尔测试，等于0.0的浮点值为假，不等于0.0的值为真。</br>- 对于数组下标，浮点数将采用C语言形式的强制转换转换为整型，当出现负数时钳制为0，数字过大时顶封到与数组长度相同。</br>- 其它支持的类型有：</br><a href="#Index">返回顶部</a><br><br>
 
 <h3></h3>
 <br / ><textarea readonly="true" cols="37" rows="8">
@@ -309,19 +309,19 @@ MoLang中的字符串是由单引号包住的。例如：'minecraft:pig'或'hell
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.atan2(y, x)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">y/x.的反正切。<strong>注意</strong>：参数的顺序！</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">y/x的反正切。<strong>注意</strong>：参数的顺序！</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.ceil(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">将value向上舍入到最接近的整数</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将value向上取整</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.clamp(value, min, max)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Clamp value to between min and max inclusive</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将value钳制在min和max之间，包含端点</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.cos(value)`</td>
-<td style="border-style:solid; border-width:3; padding:7px">Cosine (in degrees) of value</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">value的（角度制）余弦</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">`math.die_roll(num, low, high)`</td>
