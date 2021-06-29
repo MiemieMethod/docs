@@ -63,7 +63,7 @@
 
 <h3><p id="For Example:">示例：</p></h3>
 
-the animation controller for that frame.  It will take the value of `query.ground_speed`, then remap it to between 0.2 and 0.7 based on the value of `query.ground_speed` going from 0.0 to 1.0It will play one animation walk that will blend from 0.0 to 1.0 as the ground speed increases from stopped to 2.3 m/s.  The remap curve can have any number of entries.  The animation controller will then play the entity-referenced `wiggle_nose` animations, followed by the `walk` animation, scaling the latter by the value of `variable.ground_speed_curve`</br><h4></h4>
+那一帧的动画控制器会取 `query.ground_speed`的值, 然后根据从 0.0 到 1.0 的 `query.ground_speed`把他调整到 0.2 和 0.7 之间。然后他会播放一个行走动画。地面行走速度从静止到 2.3米/秒期间，行走动画会从 0.0 混合至 1.0。 重新映射曲线可以有任何加入数量。 然后动画控制器会播放 entity-referenced `woggle_nose` 动画， 接着会播放 `walk` 动画，缩放字母大小根据 `variable.ground_speed_curve` 的数值</br><h4></h4>
 <br / ><textarea readonly="true" cols="54" rows="27">
 ```
 {
