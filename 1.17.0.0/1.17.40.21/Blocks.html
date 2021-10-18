@@ -1,4 +1,5 @@
-<h1>方块文档 </br>版本：1.17.0.58</h1>
+<h1>方块文档 </br>版本：1.17.40.21</h1>
+这是Minecraft测试版的文档。本版本中的新特性、组件和功能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
 <h2><p id="Index">索引</p></h2>
 <table border="1">
 <tr> <th><a href="#Blocks">方块</a></th> </tr>
@@ -37,21 +38,27 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:breathability</td>
-<td style="border-style:solid; border-width:3; padding:7px">枚举</td>
+<td style="border-style:solid; border-width:3; padding:7px">枚举器</td>
 <td style="border-style:solid; border-width:3; padding:7px">solid</td>
 <td style="border-style:solid; border-width:3; padding:7px">定义方块的可呼吸性以及其是会被当做固体还是气体</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:creative_category</td>
+<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">Specifies the creative group for the block.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:destroy_time</td>
 <td style="border-style:solid; border-width:3; padding:7px">小数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.0</td>
-<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间，数值越大挖掘时间越长</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间，数值越大挖掘时间越长。Time is measured in seconds with base equipment.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">指定方块的显示名称ID</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">Specifies the language file key that maps to what text will be displayed when you hover over the block.</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:entity_collision</td>
@@ -90,13 +97,13 @@
 <td style="border-style:solid; border-width:2; padding:8px">burn_odds</td>
 <td style="border-style:solid; border-width:2; padding:8px">整数</td>
 <td style="border-style:solid; border-width:2; padding:8px">0</td>
-<td style="border-style:solid; border-width:2; padding:8px">定义该方块着火时被烧掉的概率</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">定义该方块着火时被烧掉的概率。值必须大于等于0。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">flame_odds</td>
 <td style="border-style:solid; border-width:2; padding:8px">整数</td>
 <td style="border-style:solid; border-width:2; padding:8px">0</td>
-<td style="border-style:solid; border-width:2; padding:8px">定义该方块靠近火源时着火的概率</br></td>
+<td style="border-style:solid; border-width:2; padding:8px">定义该方块靠近火源时着火的概率。值必须大于等于0。</br></td>
 </tr>
 </table>
 </td>
@@ -111,13 +118,19 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:geometry</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">填写要使用的几何定义名</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">The geometry description identifier to use, this identifier must match an existing geometry identifier in any of the currently loaded resource packs.</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:immovable</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
 <td style="border-style:solid; border-width:3; padding:7px">定义该方块能否不能被活塞推动</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:loot</td>
+<td style="border-style:solid; border-width:3; padding:7px">String</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">The path to the loot table, relative to the behavior pack.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:map_color</td>
@@ -136,6 +149,12 @@
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
 <td style="border-style:solid; border-width:3; padding:7px">拥有该组件的方块不能被黏性活塞拉回</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:part_visibility</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">Maps bone names in a geometry file to a condition that turns their rendering on/off. The condition should be a Molang query that uses block properties to determine true/falseSupported queries include 'has_block_property', 'block_property', and other queries that can evaluate without knowledge of the block's in-game positional or player affected data.</br>实验性玩法开关：即将到来的创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:pick_collision</td>
@@ -198,7 +217,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">该组件将在两值为端点的固定区间内触发事件</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
-<td style="border-style:solid; border-width:2; padding:8px">Trigger</td>
+<td style="border-style:solid; border-width:2; padding:8px">触发器</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
 <td style="border-style:solid; border-width:2; padding:8px">on_tick</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
@@ -237,7 +256,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:rotation</td>
 <td style="border-style:solid; border-width:3; padding:7px">矢量 [a, b, c]</td>
 <td style="border-style:solid; border-width:3; padding:7px">旋转角[0, 0, 0]</td>
-<td style="border-style:solid; border-width:3; padding:7px">方块围绕中心旋转的角度，顺序为x-y-z</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">方块围绕中心旋转的角度，顺序为x-y-z。Angles need to be in factors of 90 and within the bounds [-360, 360].</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:ticking</td>
@@ -246,7 +265,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">该组件将在两个定义值之间的固定区间内触发事件</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
-<td style="border-style:solid; border-width:2; padding:8px">Trigger</td>
+<td style="border-style:solid; border-width:2; padding:8px">触发器</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
 <td style="border-style:solid; border-width:2; padding:8px">on_tick</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
@@ -295,15 +314,15 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:unit_cube</td>
-<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">定义用于连接的模型块</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义用于连接的模型块</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:unwalkable</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">将该方块视为不可越过。如果设置为true则大部分实体不会试着跳上它</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">false</td>
+<td style="border-style:solid; border-width:3; padding:7px">Sets the block as unwalkable. Mobs would not attempt to path over top of it when the value is set to true.</br></td>
 </tr>
 </table>
 <a href="#Index">回到顶部</a><br><br>
@@ -392,7 +411,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -413,7 +432,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -440,7 +459,7 @@
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -467,7 +486,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -488,7 +507,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -509,7 +528,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -536,7 +555,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
@@ -587,7 +606,7 @@
 <tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">property</td>
-<td style="border-style:solid; border-width:2; padding:8px">MoLang</td>
+<td style="border-style:solid; border-width:2; padding:8px">Molang</td>
 <td style="border-style:solid; border-width:2; padding:8px"></td>
 <td style="border-style:solid; border-width:2; padding:8px">设置的property</br></td>
 </tr>
@@ -647,7 +666,7 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:2; padding:8px">target</td>
-<td style="border-style:solid; border-width:2; padding:8px">Minecraft滤器</td>
+<td style="border-style:solid; border-width:2; padding:8px">Minecraft过滤器</td>
 <td style="border-style:solid; border-width:2; padding:8px">self</td>
 <td style="border-style:solid; border-width:2; padding:8px">被执行的目标</br></td>
 </tr>
