@@ -10,7 +10,7 @@
 <a href="#Index">回到顶部</a>
 <h1><p id="Items">物品</p></h1>
 
-To define an item, the item definition must be defined in the behavior pack in a JSON file.</br>All attributes, including item names, must be defined using item components.</br><h1><p id="Item Components">物品组件</p></h1>
+物品必须在行为包的JSON文件中定义。</br>所有属性，包括物品名称，都必须使用物品组件定义。</br><h1><p id="Item Components">物品组件</p></h1>
 
 下面是物品组件的种类</br><h2></h2>
 
@@ -80,7 +80,7 @@ To define an item, the item definition must be defined in the behavior pack in a
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">Display Name item component. Display Names set the name to display when an item is in use or hovered over.</br>需要的实验性开关：假日创作者功能</br><h3><p id="value">value</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">名称显示物品组件。设置物品在使用或鼠标悬停时显示的名称</br>需要的实验性开关：假日创作者功能</br><h3><p id="value">value</p></h3>
 
 [String]</br>The display name for an item.</br>类型：value</br><a href="#Index">返回顶部</a><br><br>
 
@@ -90,9 +90,9 @@ To define an item, the item definition must be defined in the behavior pack in a
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:durability</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">A property that determines when an item will break from use. The durability of an item is potentially depleted upon use based on the damage chance.</br>需要的实验性开关：假日创作者功能</br><h3><p id="damage_chance">damage_chance</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">决定物品何时被用坏的属性。物品的耐久在使用时根据损坏概率消耗</br>需要的实验性开关：假日创作者功能</br><h3><p id="damage_chance">damage_chance</p></h3>
 
-Damage chance is the chance of this item losing durability. Could be an int or an int range with min and max value.</br>类型：damage_chance</br><a href="#Index">回到顶部</a><br><br>
+物品的损坏概率。可以是整型或者有最小值和最大值的整数范围</br>类型：damage_chance</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="max_durability">max_durability</p></h3>
 
@@ -168,17 +168,17 @@ Damage chance is the chance of this item losing durability. Could be an int or a
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:icon</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">渲染类物品组件。定义该物品的材质。</br>需要的实验性开关：假日创作者功能</br><h3><p id="frame">frame</p></h3>
+<td style="border-style:solid; border-width:3; padding:7px">渲染类物品组件。定义该物品的纹理。</br>需要的实验性开关：假日创作者功能</br><h3><p id="frame">frame</p></h3>
 
-决定该物品显示的材质的索引或MoLang表达式。默认为0。</br>类型：frame</br><a href="#Index">回到顶部</a><br><br>
+决定该物品显示的纹理的索引或MoLang表达式。默认为0。</br>类型：frame</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="legacy_id">legacy_id</p></h3>
 
-材质更新前的物品材质字符串标识符。Legacy ID list can be found here under 'Namespaced ID': https://minecraft.fandom.com/wiki/Bedrock_Edition_data_values</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
+纹理更新前的物品纹理字符串标识符。Legacy ID列表可以在该网址的'Namespaced ID'下找到: https://minecraft.fandom.com/wiki/Bedrock_Edition_data_values</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
 
 <h3><p id="texture">texture</p></h3>
 
-The key for the object contain the expected textures, from file 'resource_pack/textures/item_texture.json'.</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
+包含指定纹理的键名称，在'resource_pack/textures/item_texture.json'中定义</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
 
 </td>
 </tr>
@@ -352,7 +352,7 @@ The key for the object contain the expected textures, from file 'resource_pack/t
 
 <h2><p id="format_version">format_version</p></h2>
 
-Specifies the version of the game this entity was made in. If the version is lower than the current version, any changes made to the entity in the vanilla version will be applied to it.</br><a href="#Index">回到顶部</a><br><br>
+指定该实体被定义的游戏版本。如果指定版本低于当前版本，原版中对实体所做的任何更改都将应用于该实体.</br><a href="#Index">回到顶部</a><br><br>
 
 <h2>代码示例</h2>
 示例<br / ><textarea readonly="true" cols="42" rows="15">
