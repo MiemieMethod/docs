@@ -46,19 +46,19 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:creative_category</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">Specifies the creative group for the block.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义方块的创造模式背包组</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:destroy_time</td>
 <td style="border-style:solid; border-width:3; padding:7px">小数</td>
 <td style="border-style:solid; border-width:3; padding:7px">0.0</td>
-<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间，数值越大挖掘时间越长。Time is measured in seconds with base equipment.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">设置方块的摧毁时间，数值越大挖掘时间越长。时间为在手持基础装备时的秒数</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">Specifies the language file key that maps to what text will be displayed when you hover over the block.</br>实验性玩法开关：假日创作者功能</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">指定将鼠标悬停在块上时显示的文本的语言文件键</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:entity_collision</td>
@@ -118,7 +118,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:geometry</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">The geometry description identifier to use, this identifier must match an existing geometry identifier in any of the currently loaded resource packs.</br>实验性玩法开关：假日创作者功能</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">所使用模型的标识符，此标识符必须匹配在当前加载的资源包中存在的模型之一</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:immovable</td>
@@ -130,7 +130,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:loot</td>
 <td style="border-style:solid; border-width:3; padding:7px">String</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">The path to the loot table, relative to the behavior pack.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">行为包中战利品表的路径</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:map_color</td>
@@ -154,7 +154,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:part_visibility</td>
 <td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">Maps bone names in a geometry file to a condition that turns their rendering on/off. The condition should be a Molang query that uses block properties to determine true/falseSupported queries include 'has_block_property', 'block_property', and other queries that can evaluate without knowledge of the block's in-game positional or player affected data.</br>实验性玩法开关：即将到来的创作者功能</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">设置将模型文件中对应名称的骨骼渲染打开/关闭的条件。条件应当为一个使用方块属性决定true/false的Molang query。支持'has_block_property'，'block_property'，和其他可以在不知道方块在游戏中的位置或与玩家相关的数据的情况下进行计算的query。</br>实验性玩法开关：即将到来的创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:pick_collision</td>
@@ -256,7 +256,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:rotation</td>
 <td style="border-style:solid; border-width:3; padding:7px">矢量 [a, b, c]</td>
 <td style="border-style:solid; border-width:3; padding:7px">旋转角[0, 0, 0]</td>
-<td style="border-style:solid; border-width:3; padding:7px">方块围绕中心旋转的角度，顺序为x-y-z。Angles need to be in factors of 90 and within the bounds [-360, 360].</br>实验性玩法开关：假日创作者功能</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">方块围绕中心旋转的角度，顺序为x-y-z。角度必须是90的倍数并且在[-360, 360]范围内</br>实验性玩法开关：假日创作者功能</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:ticking</td>
@@ -322,7 +322,7 @@
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:unwalkable</td>
 <td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
 <td style="border-style:solid; border-width:3; padding:7px">false</td>
-<td style="border-style:solid; border-width:3; padding:7px">Sets the block as unwalkable. Mobs would not attempt to path over top of it when the value is set to true.</br></td>
+<td style="border-style:solid; border-width:3; padding:7px">将方块设置为unwalkable。在其值为true时实体不会试图从其上经过</br></td>
 </tr>
 </table>
 <a href="#Index">回到顶部</a><br><br>
