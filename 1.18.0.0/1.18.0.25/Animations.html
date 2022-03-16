@@ -1,0 +1,677 @@
+<h1>动画文档 </br>版本：1.18.0.25</h1>
+这是Minecraft测试版的文档。本版本中的新功能、组件和权能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
+<h2><p id="Index">索引</p></h2>
+<table border="1">
+<tr> <th><a href="#Animation Controllers">动画控制器</a></th> </tr>
+<tr> <td> <a href="#"> </a> </tr> </td>
+<tr> <td> <a href="#State Blending">状态融合</a> </tr> </td>
+<tr> <td> <a href="#State Transitions">状态转移</a> </tr> </td>
+<tr> <td> <a href="#States">状态</a> </tr> </td>
+<tr> <th><a href="#Channels (Rotation, Position, Scale)">通道（旋转，位置，缩放）</a></th> </tr>
+<tr> <th><a href="#Entity Animation Format Examples">实体动画格式示例</a></th> </tr>
+<tr> <th><a href="#Getting Started">准备开始</a></th> </tr>
+<tr> <td> <a href="#Adding Animations">添加动画</a> </tr> </td>
+<tr> <td> <a href="#Animation Hierarchy">动画层阶</a> </tr> </td>
+<tr> <td> <a href="#Upgrade from v1.10 to v1.17.30">从v1.10升级到v1.17.30</a> </tr> </td>
+<tr> <td> <a href="#Upgrade from v1.7 Beta to v1.8">从v1.7测试版升级到v1.8</a> </tr> </td>
+<tr> <td> <a href="#Upgrade from v1.8 Beta to v1.10">从v1.8测试版升级到v1.10</a> </tr> </td>
+<tr> <th><a href="#Key Frames">关键帧</a></th> </tr>
+<tr> <td> <a href="#Interpolation">插值</a> </tr> </td>
+<tr> <th><a href="#Names">命名</a></th> </tr>
+<tr> <th><a href="#Overview">概述</a></th> </tr>
+<tr> <th><a href="#Render Controllers">渲染控制器</a></th> </tr>
+<tr> <td> <a href="#Examples">示例</a> </tr> </td>
+<tr> <td> <a href="#Getting Started">准备开始</a> </tr> </td>
+<tr> <th><a href="#Transforms">变换</a></th> </tr>
+</table>
+<a href="#Index">返回顶部</a>
+<h1><p id="Animation Controllers">动画控制器</p></h1>
+
+Animation controllers decide which animations to play when.  Each controller contains a list of states that play one or more animations, each of which can be blended by a Molang expression if so desired.  Controller files are stored as JSON in the animation_controllers folder</br><h2></h2>
+动画控制器格式：<br / ><textarea readonly="true" cols="59" rows="24">
+{
+  "format_version": "1.17.30",
+  "animation_controllers": {
+    "controller.animation.sheep.move": {
+      "states": {
+        "default": {
+          "animations": [
+            { "walk": "query.modified_move_speed" }
+          ],
+          "transitions": [
+            { "grazing": "query.is_grazing" }
+          ]
+        },
+        "grazing": {
+          "animations": [ "grazing" ],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ]
+        }
+      }
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="State Blending">状态融合</p></h1>
+
+If you would like there to be a cross-fade between states when transitioning, simply set "blend_transition" to the time you would like the system to take in blending between the two states.  This is done as a simple lerp between the two states over the time specified.</br><h2></h2>
+例如：<br / ><textarea readonly="true" cols="156" rows="18">
+"controller.animation.tiger.move": {
+  "states": {
+    "default": {
+      "animations": [ "base_pose", "walk" ],
+      "transitions": [
+        { "angry": "query.is_angry" } // 如果query.is_angry返回为true，转移到angry状态
+      ],
+      "blend_transition": 0.2          // 当从该状态转移出去时，在0.2秒的时间上淡入淡出
+    },
+    "angry": {
+      "animations": [ "roar", "extend_claws" ],
+      "transitions": [
+        { "default": "query.any_animation_finished" } // 当roar动画和extend_claws动画之一结束时便转移回default状态
+      ]
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="State Transitions">状态转移</p></h1>
+
+A state can specify any number of transition scripts, listed in order.  Each transition has a target state to switch to, and a script for whether it should switch or not.  For each transition in order, evaluate the script, and if it returns non-zero, switch to the specified state immediately.  NOTE: Only one transition will be processed per frame.</br><h2></h2>
+<br / ><textarea readonly="true" cols="71" rows="17">
+"<controller_name>": {
+  "states": {
+    "<state_name>": {
+      ...
+      "transitions": [
+        // 按顺序计算下面的表达式。
+        // 第一个返回了非零值的状态便是要转移至的状态。
+        // 如果全部都是零，不进行转移。
+        { "<target_state_name_A>", "<expression>" },
+        { "<target_state_name_B>", "<expression>" },
+        ...
+      ]
+    }
+  },
+  ...
+}
+</textarea> </br>
+例如：<br / ><textarea readonly="true" cols="156" rows="24">
+"controller.animation.tiger.move": {
+  "states": {
+    "default": {
+      "animations": [ "base_pose", "walk" ],
+      "transitions": [
+        { "angry": "query.is_angry" }, // 如果query.is_angry返回为true，转移到angry状态
+        { "tired": "variable.is_tired" } // 如果variable.is_tired返回为true，转移到tired状态
+      ]
+    },
+    "angry": {
+      "animations": [ "roar", "extend_claws" ],
+      "transitions": [
+        { "default": "query.any_animation_finished" } // 当roar动画和extend_claws动画之一结束时便转移回default状态
+      ]
+    },
+    "tired": {
+      "animations": [ "yawn", "stretch" ],
+      "transitions": [
+        { "default": "query.all_animation_finished" } // 当yawn动画和stretch动画都结束之后转移回default状态
+      ]
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="States">状态</p></h1>
+
+一个状态定义了一组需要处理的动画（其中每一个都可以具有其自己的融合值）。每个状态都有一个可选的variables段落，列出着所引用的动画可以使用的任意数量的变量。每个状态还可以具有一个或多个动画，它们使用实体定义JSON文件中给出的短名称。</br><h2></h2>
+
+<h2><p id="State Variables">状态变量</p></h2>
+
+变量既可以由游戏设置，也可以由一个在definitions/entity/<entity_name>.json处的实体定义JSON中的用户定义的脚本中设置。变量可以通过Molang表达式定义它们的值。也可以通过一个线性插值曲线将它们的值进行重新映射。</br><h3></h3>
+
+<h3><p id="For Example:">示例：</p></h3>
+
+这里定义了一个单状态的控制器。它将创建一个变量`variable.ground_speed_curve`，仅当游戏处理该动画控制器的那一帧时，该变量才会存在在这个实体上。它将取`query.ground_speed`的值，然后基于`query.ground_speed`从0.0走到1.0的值把它重映射到0.2至0.7之间。它将在实体的地面速度从停止不动至2.3m/s时播放一个从0.0至1.0融合的walk动画。重映射曲线可以有任意多项。接下来，该动画控制器将播放从实体中引用的`wiggle_nose`动画，紧跟着播放`walk`动画，并将后者通过`variable.ground_speed_curve`的值进行缩放</br><h4></h4>
+<br / ><textarea readonly="true" cols="54" rows="27">
+```
+{
+  "format_version": "1.17.30",
+  "animation_controllers": {
+    "controller.animation.sheep.move": {
+      "states": {
+        "default": {
+          "variables": {
+            "ground_speed_curve": {
+              "input": "query.ground_speed",
+              "remap_curve": {
+                "0.0": 0.2,
+                "1.0": 0.7
+              }
+            }
+          },
+          "animations": [
+            "wiggle_nose",
+            { "walk": "variable.ground_speed_curve" }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<h2><p id="User-Defined Script Example">用户自定义脚本示例</p></h2>
+
+This script will set foo to the result of the sine of query.life_time to later be used in the animation or animation controller.</br></br>Note: "pre_animation" tells the script to figure out the values of those variables once a frame, before animation occurs, so that the animation can use those values in their own formulas. If a variable didn't exist, it will create a new variable and its default value will be 0.0</br><h3></h3>
+
+Note in this example that because foo is equal to a sin wave, that its values will range from -1 to 1.  This means that you will have a period from 0 to -1 to 0 where only "base_pose" will play and then an equal amount of time where Walk will play on top of base_pose as foo goes from 0 to 1 back to 0.  Base_pose will have a blend value of 1.0.</br><h4></h4>
+<br / ><textarea readonly="true" cols="78" rows="14">
+"controller.animation.tiger.move": {
+  "states": {
+    "default": {
+      "animations": [
+        //除非另有指定，否则动画都是<strong>叠加</strong>播放的
+        //在该例中，base_pose将始终在default状态中播放
+        //walk也会在Entity.foo大于0.0的条件下播放
+        "base_pose",
+        { "walk": "variable.foo > 0.0" }
+      ]
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h3><p id="In definitions\entity\tiger.json:">在definitions\entity\tiger.json中：</p></h3>
+
+<h4></h4>
+<br / ><textarea readonly="true" cols="51" rows="10">
+{
+  "custom:tiger":{
+    "scripts":{
+      "pre_animation": {
+        "variable.foo = math.sin(query.life_time)"
+      }
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<h1><p id="Channels (Rotation, Position, Scale)">通道（旋转，位置，缩放）</p></h1>
+
+引擎可以分别追踪一个动画的旋转、位置和缩放。在一个通道中，可以以秒为单位在从动画开始处之后的任意时刻指定一个或多个关键帧。如果没有指定关键帧，引擎将在t=0.0处创建一个单一的关键帧，所有的通道数据都存储在这个关键帧中。</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Entity Animation Format Examples">实体动画格式示例</p></h1>
+
+动画的JSON格式如下所示。注意：与几何中的格式一致，长度单位为1/16米。</br><h2></h2>
+<br / ><textarea readonly="true" cols="192" rows="32">
+
+```
+<animation_name>": {
+  // 可选
+  "loop": <bool>                                       // 默认 = false。该动画是否应该在完成时循环会t=0.0处？
+  "blend_weight": <expression>                         // 默认 = "1.0"。该动画将在多大程度上与其他动画融合。0.0 = 关闭。1.0 = 完全应用所有变换。可以是一个表达式 - 参见下方的动画控制器段落
+  "animation_length": <float>                          // 默认 = 最后一帧的时刻值。系统在何时认为该动画已经结束？
+  "override_previous_animation": <bool>                // 默认 = false。该动画骨骼的姿势是否应该在应用该动画之前被设置为绑定的姿势，从而覆盖掉到该点之前的任何动画？
+
+  // 必须
+  "bones": [
+    {
+    "<bone_name>": {                                   // 必须与在几何骨架中指定的骨骼的名称相匹配
+      // 不同类型的设置数据
+      // 省略一个通道将针对该动画的该骨骼跳过那个通道
+      // 下方任何浮点数都能被一个上方所描述的字符串表达式替换；你无需将一行上的所有浮点数都替换为表达式，只需替换那些你想使其基于表达式的浮点数即可
+      "position": 1.0,                                 // 将x、y和z设置为1
+      "position": [1.0],                               // 将x、y和z设置为1
+      "position": [1.0, 2.0, 3.0],                     // 设置x=1、y=2且z=3
+      "rotation": 45.0,                                // 将x、y和z设置为45度角
+      "rotation": [45.0],                              // 将x、y和z设置为45度角
+      "rotation": [30.0, 0.0, 45.0],                   // 将x、y和z设置为相应的值（单位为度）
+      // 注意：当前只支持一致的缩放
+      "scale": 2.0,                                    // 将该骨骼缩放为2.0倍
+      "scale": [2.0],                                  // 将该骨骼缩放为2.0倍
+      // 下方描述了关键帧数据
+      // 注意，上方任意一种样式的值都可以在“pre”和“post”下工作，“pre”和“post”无需具备相同的格式
+      "rotation": {
+        "0.0": [80.0, 0.0, 0.0],
+        "0.1667": [-80.0, 0.0, 0.0],
+        "0.333": [80.0, 0.0, 0.0]
+      }
+      // 对于不连续的通道曲线，你可以在插值至/自该关键帧时制定一个不同的值
+      "rotation": {
+        "0.3": {                                       // 键字段是对于该关键帧的时间戳：值可以是上述示例中的任意一种
+        "pre": [30.0, 0.0, 45.0],                      // 当从之前的关键帧插值到该关键帧时，使用这个值
+        "post": "180.0 * Math.Sin(global.key_frame_lerp_time)"  // 当从该关键帧插值到下一个关键帧时，使用这个值
+        }
+      }
+      // 其他示例
+      "rotation": {
+        "0.0": [80.0, 0.0, 0.0],                       // 以一个80度的x旋转角开始
+        "0.4": {
+        "pre": [80.0, 0.0, 0.0],                       // 直到流逝0.4秒之前始终保持在80
+        "post": [0.0, 0.0, 0.0],                       // 将x旋转角不连续地弹到0.0度
+        },
+        "0.8": [-80.0, 0.0, 0.0]                       // 使用之前帧的线性插值模式，在0.8秒处将x旋转角线性插值到-80度
+      }
+    }
+  ]
+}
+```
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Getting Started">准备开始</p></h1>
+
+<h1><p id="Adding Animations">添加动画</p></h1>
+
+<h2></h2>
+
+<h2><p id="Animation Controller">动画控制器</p></h2>
+
+创作者们需要能够控制动画如何进行播放，以及动画何时和通过何种方式来与其他动画交互。要想整合动画，尽管在实体的定义文件的`scripts/animate`段落中就可以管理许多动画，动画控制器给予了你状态机划分状态的功能，并能够分块对动画进行控制。动画控制器里每个状态中的动画都可以是其他的动画控制器，这允许你定义出任意复杂的动画层阶。</br><h3></h3>
+这里是一个动画控制器的示例<br / ><textarea readonly="true" cols="58" rows="27">
+{
+  "format_version": "1.17.30",
+  "animation_controllers": {
+    "controller.animation.my_mob.move": {
+      "initial_state": "moving",
+      "states": {
+        "moving": {
+          "animations": [
+            "wag_tail",
+            "wiggle_ears",
+            { "walk": "query.modified_move_speed" }
+          ],
+          "transitions": [
+            { "grazing": "query.is_grazing" }
+          ]
+        },
+        "grazing": {
+          "animations": [ "grazing" ],
+          "transitions": [
+            { "moving": "query.all_animations_finished" }
+          ]
+        }
+      }
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h2><p id="Animations">动画</p></h2>
+
+在每一帧的的开始，骨架将重置为其几何定义中默认姿势，然后动画将按照顺序逐通道叠加应用在骨架上。注意，各通道（的x、y和z）将先分别添加在各个动画上，然后在所有动画都被逐次应用之后再被转换成一个变换。</br><h3></h3>
+
+<h3><p id="Animation data can be either raw data:">动画数据可以是原始数据：</p></h3>
+
+<h4></h4>
+默认情况下旋转角是角度制的，顺序为欧拉X-Y-Z格式<br / ><textarea readonly="true" cols="29" rows="2">
+"rotation": [90.0, 0.0, 0.0]
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h3><p id="or a run-time interpreted script:">也可以是一个在运行时的解释器中解释的脚本：</p></h3>
+
+<h4></h4>
+<br / ><textarea readonly="true" cols="80" rows="2">
+"rotation": ["cos(query.anim_pos * 38.17) * 80.0 * query.anim_speed", 0.0, 0.0]
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h3></h3>
+这里是一个来自于原版资源包的动画文件夹中的quadruped.animation.json的例子：<br / ><textarea readonly="true" cols="91" rows="16">
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.quadruped.walk": {
+      "anim_time_update": "query.modified_distance_moved",
+      "loop": true,
+      "bones": {
+        "leg0": { "rotation": [ "Math.cos(query.anim_time * 38.17) *  80.0", 0.0, 0.0 ] },
+        "leg1": { "rotation": [ "Math.cos(query.anim_time * 38.17) * -80.0", 0.0, 0.0 ] },
+        "leg2": { "rotation": [ "Math.cos(query.anim_time * 38.17) * -80.0", 0.0, 0.0 ] },
+        "leg3": { "rotation": [ "Math.cos(query.anim_time * 38.17) *  80.0", 0.0, 0.0 ] }
+      }
+    }
+  }
+}
+</textarea> </br>
+<br><br>
+
+<h2><p id="Entity Definition">实体定义</p></h2>
+
+要定义一个实体都具有哪些动画，你必须同时向一个实体的实体定义文件中添加一个`animations`和一个`scripts/animate`段落。</br><h3></h3>
+
+这里你能看到pig.json的实体定义文件：这意味着你也将无法在pig.json动画文件中看到移动动画。如果你想制作一个自定义的猪的walk，你可以改变这一行的值使其指向你的自定义动画。</br></br>动画是由一个短名称，后面跟着它们的完整资源名来指定的。短名称可以用在动画控制器和`scripts/animate`列表中，而长名称则用在动画文件中。</br></br>在`scripts/animate`段落中，你可以列出要播放的动画以及它们的顺序。你可以直接指定一个动画，也可以指定一个融合表达式。</br><h4></h4>
+<br / ><textarea readonly="true" cols="61" rows="32">
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:pig",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "pig" },
+      "textures": {
+        "default": "textures/entity/pig/pig",
+        "saddled": "textures/entity/pig/pig_saddle"
+      },
+      "geometry": {
+        "default": "geometry.pig.v1.8"
+      },
+      "animations": {
+        "setup": "animation.pig.setup",
+        "walk": "animation.quadruped.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.pig.baby_transform"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          { "walk": "query.modified_move_speed" },
+          "look_at_target",
+          { "baby_transform": "query.is_baby" }
+        ]
+      },
+      "render_controllers": [ "controller.render.pig" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 2
+      }
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<br><br>
+
+<h1><p id="Animation Hierarchy">动画层阶</p></h1>
+
+Animations are channel based (rotation, position, or scale), and within that, they are key-framed:</br></br>EntityAnimation: animation name</br>__BoneAnimation[]: bone name to animation for this animation</br>____AnimationChannel[]: rotation, scale, or translation to animate</br>______KeyFrame[]: the value for the channel to be at, at a specific time</br></br>All of the above concepts are described in a detailed, bottom-up approach below</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Upgrade from v1.10 to v1.17.30">从v1.10升级到v1.17.30</p></h1>
+
+The major change with 1.17.30 is:</br>- Molang expressions inside transitions that contain capital letters are properly evaluated now. Strings inside such expressions are not forced to lowercase anymore and work as expected.</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Upgrade from v1.7 Beta to v1.8">从v1.7测试版升级到v1.8</p></h1>
+
+当我们根据反馈整理代码和沿着路线图推进技术时，我们做出了一些变更。要升级先前的Molang脚本，你需要按照列出的顺序对你所有的脚本执行以下步骤：</br>1) entity.flags.foo --> query.foo</br>2) entity.member.foo --> query.foo</br>3) entity.foo --> variable.foo</br>4) params.foo --> global.foo</br>5) 总体规律是：“query”表示正在运行脚本的实体的只读数据，而“variable”表示由用户创建的可读可写的数据。</br>6) 我们已经采用了snake_case蛇形命名法来命名所有事物的名称。由于我们的游戏大小写敏感，所以只要你愿意，你依旧可以使用大写字母，但是我们建议一般情况下使用snake_case格式.</br>7) 先前设置到生物上的一些变量已经更改为query.foo格式。请浏览下方的更新内容列表来查看加入和更改的内容。</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Upgrade from v1.8 Beta to v1.10">Upgrade from v1.8 Beta to v1.10</p></h1>
+
+在1.10中有三个主要变更，它们分别是</br>- 动画现具备以任意深的层阶引用其他动画的能力。</br>- 动画控制器的参数段落已经被`variables`段落取代。</br>- 在实体定义文件中，动画控制器现在被列在`animations`段落中，并且添加了`scripts/animate`段落来定义要播放哪个根动画。</br>v1.8的文件格式是向后兼容至v1.10的，所以你<strong>无需</strong>进行任何改变（尽管我们建议按照v1.10的精神重构你的文件，因为新格式在性能上有一些优势，并且更易理解）。</br><a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<h1><p id="Key Frames">关键帧</p></h1>
+
+一个关键帧为位于指定时刻的特定骨骼上的特定通道的变换定义了两个值，一个是迫近该关键帧时刻时的终值，另一个是在关键帧时刻达到之后的初值。</br>同样的，当在两个关键帧之间插值时，你可以以其斜率连续或不连续的方式定义动画变换曲线。</br><h1><p id="Interpolation">插值</p></h1>
+
+Currently only linear interpolation is supported.  Key frame "pre" and "post" settings allow control of the interpolation curve at any key frame.</br><h2></h2>
+
+<h2><p id="Continuous Example">连续的示例</p></h2>
+
+This example spins the bone "head" around the y axis 1 rotation in 1 second.</br>Note that because interpolation is linear, at .25 seconds the head will be rotated to 90 degrees.</br><h3></h3>
+<br / ><textarea readonly="true" cols="25" rows="8">
+"head": {
+  "rotation": {
+    "0.0":[0, 0, 0],
+    "0.5": [ 0, 180, 0],
+    "1.0": [0, 360, 0]
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h2><p id="Discontinuous Example">不连续的示例</p></h2>
+
+不连续意味着关键帧之间不会有一个平滑的过渡。当你想要一些东西突然发生时，这将非常有用。</br>这个例子缩放了“head”骨骼:</br>1. 从0到0.5秒（在“pre”标签处），head骨骼在所有的[X, Y, Z]三个维度上被设置为其正常缩放值1</br>2. 在0.5秒时，head骨骼会立刻缩放为其正常大小的2倍</br>3. 从0.5到1秒（“post”处）,骨骼在三个维度上重新缩放回到正常尺寸的缩放值1</br></br>注意，在文件格式上面介绍的那个更长的示例里，“pre”和“post”也可以被通过一个Molang表达式定义，表达式可以在运行时中进行计算，这允许你使用数学关系定义一个曲线变换，而非纯粹的线性变换。</br><h3></h3>
+<br / ><textarea readonly="true" cols="24" rows="10">
+"head": {
+  "scale": {
+    "0.5": {
+      "pre": [1, 1, 1],
+      "post": 2.0
+    }
+    "1.0": [ 1.0 ]
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<br><br>
+
+<h1><p id="Names">命名</p></h1>
+
+所有的命名：动画、骨骼、状态等，都必须以一个字母开头，只包含字母、数字、下划线和英文句点。我们建议命名时字母全部使用小写</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Overview">概述</p></h1>
+
+以下是当前的Minecraft JSON范式：</br>- 字段中的字母一律使用小写，并使用下划线且不带空格</br>- 定义目录及其子树中的所有JSON文件都将读取到动画系统并被系统的解释器解释</br><a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Render Controllers">渲染控制器</p></h1>
+
+The Render Controller needs an identifier and needs to follow the format of "controller.render.<name>".  This name needs to match the name set in the Client Entity Definitions JSON.</br></br>Render Controllers are a way for the player to determine what renders on the entity.  Players can set the geometry, materials, textures, and part visibility of the entity.  In addition to setting the keys directly, players can use arrays to have the entity choose between different options.</br><h1><p id="Examples">示例</p></h1>
+
+<h2></h2>
+
+<h3></h3>
+来自于绵羊JSON的几何数组示例<br / ><textarea readonly="true" cols="59" rows="8">
+"arrays": {
+  "geometries": {
+    "Array.geos": ["Geometry.default", "Geometry.sheared"]
+  }
+},
+"geometry": "Array.geos[query.is_sheared]",
+
+</textarea> </br>
+来自于蜘蛛JSON的材质数组示例<br / ><textarea readonly="true" cols="66" rows="8">
+"arrays": {
+  "materials": {
+    "Array.materials": ["Material.default", "Material.invisible"]
+  }
+},
+"materials": [{ "*": "Array.materials[query.is_invisible]" }], 
+
+</textarea> </br>
+来自于村民JSON的纹理数组示例<br / ><textarea readonly="true" cols="113" rows="8">
+"arrays": {
+  "textures": {
+    "Array.skins": ["Texture.farmer", "Texture.librarian", "Texture.priest", "Texture.smith", "Texture.butcher"]
+  }
+},
+"textures": ["Array.skins[query.variant]"]
+
+</textarea> </br>
+来自于盔甲1.0渲染控制器JSON的带有color的部件染色示例：<br / ><textarea readonly="true" cols="94" rows="32">
+"format_version": "1.8.0",
+"render_controllers": {
+    "controller.render.armor.chest.v1.0": {
+        "arrays": {
+          "materials": {
+            "array.armor_material": [
+              "material.armor",
+              "material.armor_enchanted",
+              "material.armor_leather",
+              "material.armor_leather_enchanted"
+            ]
+          },
+          "textures": {
+            "array.armor_texture": [
+              "texture.leather",
+              "texture.chain",
+              "texture.iron",
+              "texture.diamond",
+              "texture.gold"
+            ]
+          }
+        },
+        "geometry": "geometry.armor",
+        "materials" : [
+          { "body": "array.armor_material[query.armor_material_slot(1)]" },
+          { "leftarm": "array.armor_material[query.armor_material_slot(1)]" },
+          { "rightarm": "array.armor_material[query.armor_material_slot(1)]" }
+        ],
+        "part_visibility" : [
+          { "*": 0 },
+          { "body": "query.has_armor_slot(1)" },
+          { "leftarm": "query.has_armor_slot(1)" },
+          { "rightarm": "query.has_armor_slot(1)" }
+        ],
+        "color": {
+          "r": "query.armor_color_slot(1, 0)",
+          "g": "query.armor_color_slot(1, 1)",
+          "b": "query.armor_color_slot(1, 2)",
+          "a": "query.armor_color_slot(1, 3)"
+        },
+        "textures": ["array.armor_texture[query.armor_texture_slot(1)]", "texture.enchanted"]
+    }
+}
+
+</textarea> </br>
+来自于苦力怕渲染控制器JSON的带有is_hurt_color的示例：<br / ><textarea readonly="true" cols="53" rows="16">
+"format_version": "1.8.0",
+"render_controllers": {
+    "controller.render.creeper": {
+        "geometry" : "Geometry.default",
+        "materials" : [{ "*": "Material.default" }],
+        "textures" : "Texture.default",
+        "is_hurt_color" : {
+          "r": 0.0,
+          "g": 0.0,
+          "b": 1.0,
+          "a": 0.5,
+        }
+    }
+}
+
+</textarea> </br>
+来自火球渲染控制器JSON的带有on_fire_color的示例：<br / ><textarea readonly="true" cols="53" rows="16">
+"format_version": "1.8.0",
+"render_controllers": {
+    "controller.render.fireball": {
+        "geometry" : "Geometry.default",
+        "materials" : [{ "*": "Material.default" }],
+        "textures" : "Texture.default",
+        "on_fire_color" : {
+          "r": 0.0,
+          "g": 0.0,
+          "b": 0.0,
+          "a": 0.0,
+        }
+    }
+}
+
+</textarea> </br>
+来自凋零Boss渲染控制器JSON的带有overlay_color的示例：<br / ><textarea readonly="true" cols="78" rows="21">
+"format_version": "1.8.0",
+"render_controllers": {
+    "controller.render.wither_boss": {
+        "arrays": {
+          "textures": {
+            "Array.wither_state": ["Texture.invulnerable", "Texture.default"]
+          }
+        },
+        "geometry" : "Geometry.default",
+        "materials" : [{ "*": "Material.default" }],
+        "textures" : ["Array.wither_state[variable.display_normal_skin]"],
+        "overlay_color" : {
+          "r": "variable.is_invulnerable ? 1.0 : this",
+          "g": "variable.is_invulnerable ? 1.0 : this",
+          "b": "variable.is_invulnerable ? 1.0 : this",
+          "a": "variable.is_invulnerable ? query.overlay_alpha : this"
+        }
+    }
+}
+
+</textarea> </br>
+来自羊驼JSON的带有part_visibility的用于开启或关闭部分可见性的示例：<br / ><textarea readonly="true" cols="192" rows="21">
+"format_version": "1.8.0",
+"render_controllers": {
+  "controller.render.llama": {
+    "arrays": {
+      "textures": {
+        "Array.base": ["Texture.creamy", "Texture.white", "Texture.brown", "Texture.gray"],
+        "Array.decor": ["Texture.decor_none", "Texture.decor_white", "Texture.decor_orange", "Texture.decor_magenta", "Texture.decor_light_blue", "Texture.decor_yellow", "Texture.decor_lime", "Texture.decor_pink", "Texture.decor_gray", "Texture.decor_silver", "Texture.decor_cyan", "Texture.decor_purple", "Texture.decor_blue", "Texture.decor_brown", "Texture.decor_green", "Texture.decor_red", "Texture.decor_black"]
+      }
+    },
+    "geometry": "Geometry.default", 
+    "part_visibility": [{ "chest*": "query.is_chested" }],
+    "materials": [{ "*": "Material.default" }],
+    "textures": [
+      "Array.base[query.variant]",
+      "Array.decor[variable.decor_texture_index]",
+      "Texture.decor_none"
+    ]
+  }
+}
+
+</textarea> </br>
+来自马渲染控制器的材质数组示例。Saddle将覆盖Mane，然后Mane将覆盖TailA，等等：<br / ><textarea readonly="true" cols="42" rows="8">
+"materials": [
+  { "*": "Material.default" },
+  { "TailA": "Material.horse_hair" },
+  { "Mane": "Material.horse_hair" },
+  { "*Saddle*": "Material.horse_saddle" }
+],
+
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<h1><p id="Getting Started">准备开始</p></h1>
+
+To begin create a new folder named "render_controllers" in the root of the Resource Pack you want to add the new Render Controller JSON inside.</br><h2></h2>
+豹猫的渲染控制器JSON示例：<br / ><textarea readonly="true" cols="91" rows="15">
+"format_version": "1.8.0",
+"render_controllers": {
+  "controller.render.ocelot": {
+    "arrays": {
+      "textures": {
+        "Array.skins": ["Texture.wild", "Texture.black", "Texture.red", "Texture.siamese"]
+      }
+    },
+    "geometry": "Geometry.default",
+    "materials": [{ "*": "Material.default" }],
+    "textures": ["Array.skins[query.variant]"]
+  }
+}
+
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+
+<h1><p id="Transforms">变换</p></h1>
+
+- 运算顺序：各顶点先平移，再旋转，然后缩放。</br>- 动画数据被假设为层阶式的，并根据将动画数据和目标几何骨架中的同名骨骼相匹配的方式应用到一个骨骼上。</br>- 不是每个骨骼都需要播放动画</br>- 你可以使目标几何中不存在的骨骼播放动画（缺失的骨骼会自动忽略）。</br>- 对于每个缩放、旋转和位置，你可以单独在各方向上独立设置值或一致地设置为单个值。例如，以下它们是等价的。</br><h2></h2>
+<br / ><textarea readonly="true" cols="25" rows="4">
+"scale": [2.0, 2.0, 2.0]
+"scale": 2.0
+"scale": [2.0]
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+

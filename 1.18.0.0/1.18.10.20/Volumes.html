@@ -1,0 +1,176 @@
+<h1>功能域文档 </br>版本：1.18.10.20</h1>
+这是Minecraft测试版的文档。本版本中的新功能、组件和权能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
+<h2><p id="Index">索引</p></h2>
+<table border="1">
+<tr> <th><a href="#Volumes">功能域</a></th> </tr>
+<tr> <td> <a href="#Volume Components">功能域组件</a> </tr> </td>
+<tr> <td> <a href="#Volume Definition Properties">功能域定义属性</a> </tr> </td>
+<tr> <td> <a href="#Volume Description Properties">功能域描述属性</a> </tr> </td>
+</table>
+<a href="#Index">返回顶部</a>
+<h1><p id="Volumes">功能域</p></h1>
+
+<h1><p id="Volume Components">功能域组件</p></h1>
+
+这里是该实体各种可能的组件</br><h2></h2>
+
+<table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
+<tr> <th style="border-style:solid; border-width:3;">名称</th> <th style="border-style:solid; border-width:3;">类型</th> <th style="border-style:solid; border-width:3;">默认值</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:bounds</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">为一个包围盒定义了一个最小和最大方块位置，并且定义了该包围盒位于哪个维度中的组件。每个功能域都必须有一个bounds组件。</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">dimension</td>
+<td style="border-style:solid; border-width:2; padding:8px">字符串</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">该包围盒将存在于的维度的名称：‘overworld’、‘nether’或‘the end’中的一个。</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">max</td>
+<td style="border-style:solid; border-width:2; padding:8px">向量 [a, b, c]</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">该包围盒的最大方块位置。</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">min</td>
+<td style="border-style:solid; border-width:2; padding:8px">向量 [a, b, c]</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">该包围盒的最小方块位置。</br></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:fog</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">在每当一个玩家进入该功能域时显示给定的迷雾。每个功能域只能挂接有一种迷雾。</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">fog_identifier</td>
+<td style="border-style:solid; border-width:2; padding:8px">字符串</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">一个迷雾定义的标识符。注意，如果该定义不存在，你将不会收到任何反馈。</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">priority</td>
+<td style="border-style:solid; border-width:2; padding:8px">整数</td>
+<td style="border-style:solid; border-width:2; padding:8px">INT_MAX</td>
+<td style="border-style:solid; border-width:2; padding:8px">该迷雾定义设置的优先级。越小的数字具有越高的优先级。相同优先级的迷雾将组合在一起。</br></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:on_actor_enter</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义了当一个活动对象进入该功能域时将会发生什么的组件。可以包含多个JSON对象。</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">on_enter</td>
+<td style="border-style:solid; border-width:2; padding:8px">数组</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">包含所有触发器的必须数组。</br><h5><p id="condition">condition</p></h5>
+
+将用于对该活动对象测试的Molang表达式。入股表达式计算为true，则给定的事件将会触发。</br><a href="#Index">返回顶部</a><br><br>
+
+<h5><p id="event">event</p></h5>
+
+将会运行的事件的名称。</br><a href="#Index">返回顶部</a><br><br>
+
+<h5><p id="target">target</p></h5>
+
+“self”或“other”中的一个。self意味着该事件将被挂接在该功能域上。other意味着该事件将被挂接在该活动对象上。</br><a href="#Index">返回顶部</a><br><br>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:on_actor_leave</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">定义了当一个活动对象离开该功能域时将会发生什么的组件。</br><table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:2;">
+<tr> <th style="border-style:solid; border-width:2;">名称</th> <th style="border-style:solid; border-width:2;">类型</th> <th style="border-style:solid; border-width:2;">默认值</th> <th style="border-style:solid; border-width:2;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:2; padding:8px">on_leave</td>
+<td style="border-style:solid; border-width:2; padding:8px">数组</td>
+<td style="border-style:solid; border-width:2; padding:8px"></td>
+<td style="border-style:solid; border-width:2; padding:8px">包含所有触发器的必须数组。</br><h5><p id="condition">condition</p></h5>
+
+将用于对该活动对象测试的Molang表达式。入股表达式计算为true，则给定的事件将会触发。</br><a href="#Index">返回顶部</a><br><br>
+
+<h5><p id="event">event</p></h5>
+
+将会运行的事件的名称。</br><a href="#Index">返回顶部</a><br><br>
+
+<h5><p id="target">target</p></h5>
+
+“self”或“other”中的一个。self意味着该事件将被挂接在该功能域上。other意味着该事件将被挂接在该活动对象上。</br><a href="#Index">返回顶部</a><br><br>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Volume Definition Properties">功能域定义属性</p></h1>
+
+一个minecraft:volume实体的属性。注意：每个功能域都必须具有一个bounds组件。所有其他的组件都是可选的。</br><h2></h2>
+
+<table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
+<tr> <th style="border-style:solid; border-width:3;">名称</th> <th style="border-style:solid; border-width:3;">类型</th> <th style="border-style:solid; border-width:3;">默认值</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">format_version</td>
+<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">指定制作该实体的游戏的版本。最低支持的版本是1.17.0。当前支持的版本是1.17.0。</br></td>
+</tr>
+</table>
+<h2>示例</h2>
+示例<br / ><textarea readonly="true" cols="58" rows="19">
+{
+  "format_version": 1.17.0,
+  "minecraft:volume": {
+    "description": {
+      "identifier": "your_custom_namespace:sample_volume"
+    },
+    "components": {
+      "minecraft:bounds": {
+        "min": [-50, 0, -50],
+        "max": [50, 256, 50]
+      },
+      "minecraft:fog": {
+        "fog_identifier": "minecraft:fog_savanna",
+        "priority": 1
+      }
+    }
+  }
+}
+</textarea> </br>
+<a href="#Index">返回顶部</a><br><br>
+
+<h1><p id="Volume Description Properties">功能域描述属性</p></h1>
+
+描述只包含一个‘identifier’字符串。</br><h2></h2>
+
+<table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
+<tr> <th style="border-style:solid; border-width:3;">名称</th> <th style="border-style:solid; border-width:3;">类型</th> <th style="border-style:solid; border-width:3;">默认值</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">identifier</td>
+<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">该功能域的唯一标识符。它的形式必须为‘namespace:name’，其中namespace不能为‘minecraft’。</br></td>
+</tr>
+</table>
+<a href="#Index">返回顶部</a><br><br>
+
+<br><br>
+

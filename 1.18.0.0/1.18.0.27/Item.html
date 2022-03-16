@@ -1,0 +1,410 @@
+<h1>物品文档 </br>版本：1.18.0.27</h1>
+这是Minecraft测试版的文档。本版本中的新功能、组件和权能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
+<h2><p id="Index">索引</p></h2>
+<table border="1">
+<tr> <th><a href="#Items">物品</a></th> </tr>
+<tr> <td> <a href="#Item Components">物品组件</a> </tr> </td>
+<tr> <td> <a href="#Item Definition Properties">物品定义属性</a> </tr> </td>
+<tr> <td> <a href="#Item Description Properties">物品描述属性</a> </tr> </td>
+</table>
+<a href="#Index">回到顶部</a>
+<h1><p id="Items">物品</p></h1>
+
+要定义一个物品，物品定义必须定义在行为包中的一个JSON文件中。</br>所有的特性，包括物品名，都必须使用物品组件进行定义。</br><h1><p id="Item Components">物品组件</p></h1>
+
+以下是各种物品功能的组件。</br><h2></h2>
+
+<table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
+<tr> <th style="border-style:solid; border-width:3;">名称</th> <th style="border-style:solid; border-width:3;">类型</th> <th style="border-style:solid; border-width:3;">默认值</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:armor</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">盔甲物品组件可以确定在你的盔甲物品中你可以具有保护值数量。</br>需要实验性开关：假日创作者功能</br><h3><p id="protection">protection</p></h3>
+
+该盔甲物品具有多少保护值。</br>最小值：0</br>类型：integer</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="texture_type">texture_type</p></h3>
+
+要为此盔甲应用的纹理类型。注意，若是马铠，其类型需要限制到leather、iron、gold或diamond上。</br>接受的值：“gold”、“none”、“leather”、“chain”、“iron”、“diamond”、“elytra”、“turtle”、“netherite”</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:block_placer</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">种植器物品组件。种植器物品是可以被种植的物品。</br>需要实验性开关：假日创作者功能</br><h3><p id="block">block</p></h3>
+
+block：为种植器物品设置放置的方块名。</br>类型：block</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="use_on">use_on</p></h3>
+
+包含该物品可以使用在其上的方块的方块描述器列表。如果留空，则将允许所有方块。</br>类型：use_on的数组</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:cooldown</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">一个冷却时间的组件。在你使用一个物品后，它将由在该组件中的‘冷却时间’设置所指定的时长内变为不可用状态。</br>需要实验性开关：假日创作者功能</br><h3><p id="category">category</p></h3>
+
+The type of cool down for this item.</br>类型：category</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="duration">duration</p></h3>
+
+该物品在变回可用状态之前用于冷却所经历的时间的时长。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:digger</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">挖掘器物品。用于应用在具有挖掘作用的物品上的组件。</br>需要实验性开关：假日创作者功能</br><h3><p id="destroy_speeds">destroy_speeds</p></h3>
+
+每方块的破坏速度。</br>类型：destroy_speeds的数组</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="on_dig">on_dig</p></h3>
+
+当你破坏了一个没有在destroy_speeds中列出的方块时触发的触发器</br>类型：on_dig</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="use_efficiency">use_efficiency</p></h3>
+
+是否可以附魔效率？默认设置为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:display_name</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">显示名称物品组件。显示名称用于设置一个物品使用中或指针悬停其上时所显示的名称。</br>需要实验性开关：假日创作者功能</br><h3><p id="value">value</p></h3>
+
+The display name for an item.</br>类型：value</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:durability</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">一个用于确定一个物品何时因使用而破碎的属性。一个物品的耐久可能会基于损坏机会在使用时被消耗。</br>需要实验性开关：假日创作者功能</br><h3><p id="damage_chance">damage_chance</p></h3>
+
+损坏机会是该物品失去耐久的机会值。可以是一个整型或者一个带有最小和最大值的整型范围。</br>类型：damage_chance</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="max_durability">max_durability</p></h3>
+
+最大耐久是该物品在破碎之前所能承受的损坏的数量。</br>类型：integer</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:dye_powder</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">染料粉，总共存在16种染料。</br>需要实验性开关：假日创作者功能</br><h3><p id="color">color</p></h3>
+
+定义该染料是哪种颜色。</br>接受的值：“black”、“red”、“green”、“brown”、“blue”、“purple”、“cyan”、“silver”、“gray”、“pink”、“lime”、“yellow”、“lightblue”、“magenta”、“orange”、“white”</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:entity_placer</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">实体放置器物品组件。你可以指定该物品被限制到的所允许的方块。。</br>需要实验性开关：假日创作者功能</br><h3><p id="dispense_on">dispense_on</p></h3>
+
+包含该物品可以被发射器发射在其上的方块的方块描述器列表。如果留空，则将允许所有方块。</br>类型：dispense_on的数组</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="entity">entity</p></h3>
+
+要放置在世界中的实体。</br>类型：entity</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="use_on">use_on</p></h3>
+
+包含该物品可以使用在其上的方块的方块描述器列表。如果留空，则将允许所有方块。</br>类型：use_on的数组</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:food</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">当一个物品具备一个食物组件时，它将对玩家而言变得可食用。</br>需要实验性开关：假日创作者功能</br><h3><p id="can_always_eat">can_always_eat</p></h3>
+
+如果为true，你将使用可以食用该物品（甚至当你并不饥饿时），默认为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="nutrition">nutrition</p></h3>
+
+当该食物物品被食用是，它将给予玩家多少营养值。</br>类型：integer</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="on_consume">on_consume</p></h3>
+
+</br>类型：on_consume</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="saturation_modifier">saturation_modifier</p></h3>
+
+当应用饱和增益时，饱和度修饰符将遵循以下公式使用：(nutrition * saturation_modifier * 2)。这将在你食用物品时发生。</br>类型：saturation_modifier</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="using_converts_to">using_converts_to</p></h3>
+
+当被使用时，将<strong>该</strong>物品转换为通过‘using_converts_to’指定的物品。</br>类型：using_converts_to</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:fuel</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">燃料组件。允许该物品被当做燃料在一个熔炉中使用以‘烹饪’其他物品。</br>需要实验性开关：假日创作者功能</br><h3><p id="duration">duration</p></h3>
+
+该燃料烹饪物品需要经历多长时间（以秒为单位）。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:icon</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">用于确定代表该物品的图标的图标物品组件。</br>需要实验性开关：假日创作者功能</br><h3><p id="frame">frame</p></h3>
+
+该图标要显示在哪一帧的一个排列值或Molang表达式。</br>类型：frame</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="legacy_id">legacy_id</p></h3>
+
+适用于较旧物品图标的旧版纹理字符串ID。旧版ID列表可以在这里的‘Namespaced ID’下找到：https://minecraft.fandom.com/wiki/Bedrock_Edition_data_values</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="texture">texture</p></h3>
+
+包含来自于文件‘resource_pack/textures/item_texture.json’的期望纹理的对象的键名。</br>类型：string</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:knockback_resistance</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">击退抗性物品。应用在物品上用于提供击退抗性的的组件。</br>需要实验性开关：假日创作者功能</br><h3><p id="protection">protection</p></h3>
+
+提供的击退抗性数量，其中全部的最大保护值为1.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:on_use</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">on_use物品组件允许你在该物品被使用时接收一个事件。</br>需要实验性开关：假日创作者功能</br><h3><p id="on_use">on_use</p></h3>
+
+当该物品被使用时触发的触发器。</br>类型：on_use</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:on_use_on</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">The on_use_on item component allows you to receive an event when the item is used on a block in the world.</br>需要实验性开关：假日创作者功能</br><h3><p id="on_use_on">on_use_on</p></h3>
+
+当该物品被使用时触发的触发器。</br>类型：on_use_on</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:projectile</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">弹射物物品组件。弹射物物品可以发射出去，就像一根箭那样。</br>需要实验性开关：假日创作者功能</br><h3><p id="minimum_critical_power">minimum_critical_power</p></h3>
+
+你必需蓄力一个弹射物多长时间才能使其打出暴击。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="projectile_entity">projectile_entity</p></h3>
+
+要作为一个弹射物被发射的实体。</br>类型：projectile_entity</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:render_offsets</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">渲染偏移量组件：可以给予一个可选的值以偏移该物品的渲染位置。</br>需要实验性开关：假日创作者功能</br><h3><p id="main_hand">main_hand</p></h3>
+
+主手变换数据。</br>类型：main_hand</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="off_hand">off_hand</p></h3>
+
+副手变换数据。</br>类型：off_hand</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:repairable</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">可修复物品组件：该物品能够修复多少损坏，什么物品可以修复它。</br>需要实验性开关：假日创作者功能</br><h3><p id="on_repaired">on_repaired</p></h3>
+
+当该物品被修复时调用的事件。</br>类型：on_repaired</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="repair_items">repair_items</p></h3>
+
+修复物品条目。</br>类型：repair_items的数组</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:shooter</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">发射器物品组件。</br>需要实验性开关：假日创作者功能</br><h3><p id="ammunition">ammunition</p></h3>
+
+弹药。</br>类型：ammunition的数组</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="charge_on_draw">charge_on_draw</p></h3>
+
+在装填时是否蓄力？默认设置为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="launch_power_scale">launch_power_scale</p></h3>
+
+射出威力缩放值。默认设置为1.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="max_draw_duration">max_draw_duration</p></h3>
+
+装填时长。默认设置为0。</br>类型：max_draw_duration</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="max_launch_power">max_launch_power</p></h3>
+
+射出威力。默认设置为1.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="scale_power_by_draw_duration">scale_power_by_draw_duration</p></h3>
+
+根据装填时长缩放威力？默认设置为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:throwable</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">可投掷物品组件。可投掷物品，例如一个雪球。</br>需要实验性开关：假日创作者功能</br><h3><p id="do_swing_animation">do_swing_animation</p></h3>
+
+当被投掷出去时，该物品是否应使用挥摆动画。默认设置为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="launch_power_scale">launch_power_scale</p></h3>
+
+该投掷的威力将以该缩放值逐次增加。默认设置为1.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="max_draw_duration">max_draw_duration</p></h3>
+
+要装填一个可投掷物品的最大时长。默认设置为0.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="max_launch_power">max_launch_power</p></h3>
+
+要射出该可投掷物品的最大威力。默认设置为1.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="min_draw_duration">min_draw_duration</p></h3>
+
+要装填该可投掷物品的最小时长。默认设置为0.0。</br>类型：float</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="scale_power_by_draw_duration">scale_power_by_draw_duration</p></h3>
+
+该投掷的威力是否随着蓄力时长增加而增加。默认设置为false。</br>类型：boolean</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:weapon</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">武器物品组件。用于添加到每一个武器物品上，例如斧、剑、弓、弩。</br>需要实验性开关：假日创作者功能</br><h3><p id="on_hit_block">on_hit_block</p></h3>
+
+用于使你得知何时该物品被用于击中一个方块时的触发器。</br>类型：on_hit_block</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="on_hurt_entity">on_hurt_entity</p></h3>
+
+用于使你得知何时该物品被用于伤害另一个生物时的触发器。</br>类型：on_hurt_entity</br><a href="#Index">回到顶部</a><br><br>
+
+<h3><p id="on_not_hurt_entity">on_not_hurt_entity</p></h3>
+
+用于使你得知何时该物品被用于击中另一个活动对象，但是没有造成伤害时的触发器。</br>类型：on_not_hurt_entity</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">minecraft:wearable</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">可穿戴物品组件。</br>需要实验性开关：假日创作者功能</br><h3><p id="slot">slot</p></h3>
+
+equipment_slot：slot.weapon.mainhand、slot.weapon.offhand、slot.armor.head、slot.armor.chest、slot.armor.legs、slot.armor.feet、slot.hotbar、slot.inventory、slot.enderchest、slot.saddle、slot.armor、slot.chest</br>接受的值：“slot.armor.legs”、“none”、“slot.weapon.mainhand”、“slot.weapon.offhand”、“slot.armor.head”、“slot.armor.chest”、“slot.armor.feet”、“slot.hotbar”、“slot.inventory”、“slot.enderchest”、“slot.saddle”、“slot.armor”、“slot.chest”</br><a href="#Index">回到顶部</a><br><br>
+
+</td>
+</tr>
+</table>
+<a href="#Index">回到顶部</a><br><br>
+
+<h1><p id="Item Definition Properties">物品定义属性</p></h1>
+
+这些属性是物品定义的一部分。这有助于系统确定如何解析和初始化该物品。</br><h2></h2>
+
+<h2><p id="format_version">format_version</p></h2>
+
+指定制作该实体的游戏的版本。如果该版本比当前版本低，则任何对原版版本中的实体做出的变更都将应用到它身上。</br><a href="#Index">回到顶部</a><br><br>
+
+<h2>代码示例</h2>
+示例<br / ><textarea readonly="true" cols="42" rows="22">
+{
+  "format_version": "1.16.1",
+  "minecraft:item": {
+    "description": {
+      "identifier": "minecraft:blaze_rod"
+    },
+    "components": {
+      "minecraft:fuel": {
+        "duration": 120.0
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": {
+        "texture": "blaze_rod"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:display_name": {
+        "value": "Blaze Rod"
+      }
+    }
+  }
+}
+</textarea> </br>
+<br><br>
+
+<h1><p id="Item Description Properties">物品描述属性</p></h1>
+
+<h2></h2>
+
+<table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:3;">
+<tr> <th style="border-style:solid; border-width:3;">名称</th> <th style="border-style:solid; border-width:3;">类型</th> <th style="border-style:solid; border-width:3;">默认值</th> <th style="border-style:solid; border-width:3;">描述</th> </tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">category</td>
+<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">该物品的分类。分类可以用于控制该物品是如何被集成进基岩引擎中的一些高级别属性，例如它是否能够在斜杠命令中使用。</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">identifier</td>
+<td style="border-style:solid; border-width:3; padding:7px">字符串</td>
+<td style="border-style:solid; border-width:3; padding:7px"></td>
+<td style="border-style:solid; border-width:3; padding:7px">该物品的标识符。该名称必须包含一个命名空间，而且除非想要覆写一个原版物品，否则不可以使用minecraft命名空间。</br></td>
+</tr>
+<tr>
+<td style="border-style:solid; border-width:3; padding:7px">is_experimental</td>
+<td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
+<td style="border-style:solid; border-width:3; padding:7px">false</td>
+<td style="border-style:solid; border-width:3; padding:7px">如果该物品是实验性的，则它只会在世界被标记为实验性时被引擎注册。</br></td>
+</tr>
+</table>
+<a href="#Index">回到顶部</a><br><br>
+
+<br><br>
+
