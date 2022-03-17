@@ -1,4 +1,4 @@
-<h1>地物文档 </br>版本：1.18.10.4<h1>
+<h1>地物文档 </br>版本：1.18.10.4</h1>
 <h2><p id="Index">索引</p></h2>
 <table border="1">
 <tr> <th><a href="#Overview">概述</a></th> </tr>
@@ -36,10 +36,10 @@
 <tr> <th><a href="#Feature rule schema">地物规则模式</a></th> </tr>
 <tr> <th><a href="#Forced features">强制型地物</a></th> </tr>
 </table>
-<a href="#Index">>返回顶部<</a>
+<a href="#Index">返回顶部</a>
 <h1><p id="Overview">概述</p></h1>
 
-Features are decorations scattered throughout the world. Things such as trees, plants, flowers, springs, ore, and coral are all features. Basically, if it isn't the terrain or a mob, it's probably a feature!</br>Features can be standalone or composed of multiple sub-features. In practice, most features in Minecraft are defined as a chain of two or more features. These chains typically end with features that place blocks in the world. Other feature types control flow such as conditional, sequential, or random distribution.</br><a href="#Index">>返回顶部<</a><br><br>
+Features are decorations scattered throughout the world. Things such as trees, plants, flowers, springs, ore, and coral are all features. Basically, if it isn't the terrain or a mob, it's probably a feature!</br>Features can be standalone or composed of multiple sub-features. In practice, most features in Minecraft are defined as a chain of two or more features. These chains typically end with features that place blocks in the world. Other feature types control flow such as conditional, sequential, or random distribution.</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="JSON format">JSON格式</p></h1>
 
@@ -61,11 +61,11 @@ All features must specify the version that they target via the "format_version" 
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Adding features">添加地物</p></h1>
 
-Features are read from JSON files in the "features" subfolder of behavior packs. Loading enforces one feature per file; the file name and the name of the feature must match. Feature names can include a namespace of the form "namespace:feature_name" to help distinguish them from features that may be in other behavior packs. This namespace is not considered when matching the filename to the feature name. For example, in a file called "my_tree_feature.json" both "my_tree_feature" and "my_pack_name:my_tree_feature" would be valid identifiers. If two behavior packs define the same feature name (including namespace), then the feature from the highest pack in the stack will be used. This allows users to override base features if desired.</br><a href="#Index">>返回顶部<</a><br><br>
+Features are read from JSON files in the "features" subfolder of behavior packs. Loading enforces one feature per file; the file name and the name of the feature must match. Feature names can include a namespace of the form "namespace:feature_name" to help distinguish them from features that may be in other behavior packs. This namespace is not considered when matching the filename to the feature name. For example, in a file called "my_tree_feature.json" both "my_tree_feature" and "my_pack_name:my_tree_feature" would be valid identifiers. If two behavior packs define the same feature name (including namespace), then the feature from the highest pack in the stack will be used. This allows users to override base features if desired.</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Supported features">支持的地物</p></h1>
 
@@ -87,7 +87,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:sequence_feature">minecraft:sequence_feature</p></h1>
 
@@ -106,7 +106,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:beards_and_shavers">minecraft:beards_and_shavers</p></h1>
 
@@ -126,7 +126,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
           "beard_raggedness_max": 0.3
         }}
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:cave_carver_feature">minecraft:cave_carver_feature</p></h1>
 
@@ -144,7 +144,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
         }
       }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:conditional_list">minecraft:conditional_list</p></h1>
 
@@ -159,7 +159,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
           "early_out_scheme": "placement_success"
         
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:fossil_feature">minecraft:fossil_feature</p></h1>
 
@@ -219,7 +219,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:growing_plant_feature">minecraft:growing_plant_feature</p></h1>
 
@@ -250,7 +250,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:hell_cave_carver_feature">minecraft:hell_cave_carver_feature</p></h1>
 
@@ -267,7 +267,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
         }
       }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:multiface_feature">minecraft:multiface_feature</p></h1>
 
@@ -291,7 +291,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:ore_feature">minecraft:ore_feature</p></h1>
 
@@ -346,7 +346,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:partially_exposed_blob_feature">minecraft:partially_exposed_blob_feature</p></h1>
 
@@ -366,7 +366,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:rect_layout">minecraft:rect_layout</p></h1>
 
@@ -388,7 +388,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
       }
     
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:scan_surface">minecraft:scan_surface</p></h1>
 
@@ -396,7 +396,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
 示例用法：扫描一个区块的表面，并且如果可以的话，放置一个地物。<br / ><textarea readonly="true" cols="50" rows="2">
 {"scan_surface_feature": "example:apple_feature"}
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:scatter_feature">minecraft:scatter_feature</p></h1>
 
@@ -423,15 +423,15 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:catalyst_feature">minecraft:catalyst_feature</p></h1>
 
-地物类型‘minecraft:catalyst_feature’尚无文档。</br><a href="#Index">>返回顶部<</a><br><br>
+地物类型‘minecraft:catalyst_feature’尚无文档。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:sculk_patch_feature">minecraft:sculk_patch_feature</p></h1>
 
-地物类型‘minecraft:sculk_patch_feature’尚无文档。</br><a href="#Index">>返回顶部<</a><br><br>
+地物类型‘minecraft:sculk_patch_feature’尚无文档。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:search_feature">minecraft:search_feature</p></h1>
 
@@ -452,7 +452,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
     "required_successes": 3
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:single_block_feature">minecraft:single_block_feature</p></h1>
 
@@ -476,7 +476,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:snap_to_surface_feature">minecraft:snap_to_surface_feature</p></h1>
 
@@ -494,7 +494,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:structure_template_feature">minecraft:structure_template_feature</p></h1>
 
@@ -520,7 +520,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:surface_relative_threshold_feature">minecraft:surface_relative_threshold_feature</p></h1>
 
@@ -536,7 +536,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   "minimum_distance_below_surface": 2
   }
   estimated</textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:underwater_cave_carver_feature">minecraft:underwater_cave_carver_feature</p></h1>
 
@@ -554,15 +554,15 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
         }
       }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:tree_feature">minecraft:tree_feature</p></h1>
 
-地物类型‘minecraft:tree_feature’尚无文档。</br><a href="#Index">>返回顶部<</a><br><br>
+地物类型‘minecraft:tree_feature’尚无文档。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:vegetation_patch_feature">minecraft:vegetation_patch_feature</p></h1>
 
-地物类型‘minecraft:vegetation_patch_feature’尚无文档。</br><a href="#Index">>返回顶部<</a><br><br>
+地物类型‘minecraft:vegetation_patch_feature’尚无文档。</br><a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="minecraft:weighted_random_feature">minecraft:weighted_random_feature</p></h1>
 
@@ -583,7 +583,7 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 }
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h2>地物模式</h2>
 这里是完整的地物模式<br / ><textarea readonly="true" cols="192" rows="32">
@@ -1505,9 +1505,9 @@ Features are read from JSON files in the "features" subfolder of behavior packs.
   }
 
 </textarea> </br>
-<a href="#Index">>返回顶部<</a><br><br>
+<a href="#Index">返回顶部</a><br><br>
 
 <h1><p id="Forced features">强制型地物</p></h1>
 
-Features attached with the second method are called "forced" or "explicit" features. Unlike feature rules, forced features are not defined in separate JSON files. Instead, they are specified in the existing biome JSON definitions via the "minecraft:forced_features" component. Like feature rules, this component includes fields that define when features should be placed ("placement_pass") and how they should be scattered ("distribution"). For more information about biome components (including the complete JSON schema), consult the biome documentation.</br><a href="#Index">>返回顶部<</a><br><br>
+Features attached with the second method are called "forced" or "explicit" features. Unlike feature rules, forced features are not defined in separate JSON files. Instead, they are specified in the existing biome JSON definitions via the "minecraft:forced_features" component. Like feature rules, this component includes fields that define when features should be placed ("placement_pass") and how they should be scattered ("distribution"). For more information about biome components (including the complete JSON schema), consult the biome documentation.</br><a href="#Index">返回顶部</a><br><br>
 

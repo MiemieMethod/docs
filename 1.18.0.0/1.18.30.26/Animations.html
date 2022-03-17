@@ -1,4 +1,5 @@
-<h1>动画文档 </br>版本：1.18.10.4</h1>
+<h1>动画文档 </br>版本：1.18.30.26</h1>
+这是Minecraft测试版的文档。本版本中的新功能、组件和权能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
 <h2><p id="Index">索引</p></h2>
 <table border="1">
 <tr> <th><a href="#Animation Controllers">动画控制器</a></th> </tr>
@@ -13,6 +14,7 @@
 <tr> <td> <a href="#Animation Hierarchy">动画层阶</a> </tr> </td>
 <tr> <td> <a href="#Upgrade from v1.10 to v1.17.30">从v1.10升级到v1.17.30</a> </tr> </td>
 <tr> <td> <a href="#Upgrade from v1.17.30 to v1.18.10">从v1.17.30升级到v1.18.10</a> </tr> </td>
+<tr> <td> <a href="#Upgrade from v1.18.10 to v1.18.20">从v1.18.10升级到v1.18.20</a> </tr> </td>
 <tr> <td> <a href="#Upgrade from v1.7 Beta to v1.8">从v1.7测试版升级到v1.8</a> </tr> </td>
 <tr> <td> <a href="#Upgrade from v1.8 Beta to v1.10">从v1.8测试版升级到v1.10</a> </tr> </td>
 <tr> <th><a href="#Key Frames">关键帧</a></th> </tr>
@@ -417,11 +419,15 @@ The major change with 1.17.30 is:</br>- Molang expressions inside transitions th
 
 The major change with 1.18.10 is:</br>- Fixed an issue where animation controller events defined in the default state would get skipped if the controller immediately transitioned to another state.</br><a href="#Index">返回顶部</a><br><br>
 
+<h1><p id="Upgrade from v1.18.10 to v1.18.20">从v1.18.10升级到v1.18.20</p></h1>
+
+The major change with 1.18.20 is:</br>- Molang expressions inside animation scripts for actor resource definition (pre_animation and initialize) that contain capital letters are properly evaluated now. Strings inside such expressions are not forced to lowercase anymore and work as expected.</br><a href="#Index">Back to top</a><br><br>
+
 <h1><p id="Upgrade from v1.7 Beta to v1.8">从v1.7测试版升级到v1.8</p></h1>
 
 当我们根据反馈整理代码和沿着路线图推进技术时，我们做出了一些变更。要升级先前的Molang脚本，你需要按照列出的顺序对你所有的脚本执行以下步骤：</br>1) entity.flags.foo --> query.foo</br>2) entity.member.foo --> query.foo</br>3) entity.foo --> variable.foo</br>4) params.foo --> global.foo</br>5) 总体规律是：“query”表示正在运行脚本的实体的只读数据，而“variable”表示由用户创建的可读可写的数据。</br>6) 我们已经采用了snake_case蛇形命名法来命名所有事物的名称。由于我们的游戏大小写敏感，所以只要你愿意，你依旧可以使用大写字母，但是我们建议一般情况下使用snake_case格式.</br>7) 先前设置到生物上的一些变量已经更改为query.foo格式。请浏览下方的更新内容列表来查看加入和更改的内容。</br><a href="#Index">返回顶部</a><br><br>
 
-<h1><p id="Upgrade from v1.8 Beta to v1.10">Upgrade from v1.8 Beta to v1.10</p></h1>
+<h1><p id="Upgrade from v1.8 Beta to v1.10">从v1.8测试版升级到v1.10</p></h1>
 
 在1.10中有三个主要变更，它们分别是</br>- 动画现具备以任意深的层阶引用其他动画的能力。</br>- 动画控制器的参数段落已经被`variables`段落取代。</br>- 在实体定义文件中，动画控制器现在被列在`animations`段落中，并且添加了`scripts/animate`段落来定义要播放哪个根动画。</br>v1.8的文件格式是向后兼容至v1.10的，所以你<strong>无需</strong>进行任何改变（尽管我们建议按照v1.10的精神重构你的文件，因为新格式在性能上有一些优势，并且更易理解）。</br><a href="#Index">返回顶部</a><br><br>
 

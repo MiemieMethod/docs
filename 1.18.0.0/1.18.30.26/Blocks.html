@@ -1,4 +1,5 @@
-<h1>方块文档 </br>版本：1.18.10.4</h1>
+<h1>方块文档 </br>版本：1.18.30.26</h1>
+这是Minecraft测试版的文档。本版本中的新功能、组件和权能不代表最终版本，可能在最终版本发布前发生变化而不另行通知。<br/>如果您的附加包不能正常工作，请务必在游戏走出测试后检查文档。为测试版创建的资源包和行为包不能保证在最终版本中有效。<br/>
 <h2><p id="Index">索引</p></h2>
 <table border="1">
 <tr> <th><a href="#Blocks">方块</a></th> </tr>
@@ -73,12 +74,6 @@
 <td style="border-style:solid; border-width:3; padding:7px">该方块将会过滤的光线数量。越大的值意味着会有越多的光线被过滤掉（0 - 15）。</br></td>
 </tr>
 <tr>
-<td style="border-style:solid; border-width:3; padding:7px">minecraft:breakonpush</td>
-<td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">当被活塞推动的时候，该方块会被破坏。</br></td>
-</tr>
-<tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:breathability</td>
 <td style="border-style:solid; border-width:3; padding:7px">枚举器</td>
 <td style="border-style:solid; border-width:3; padding:7px">solid</td>
@@ -86,15 +81,15 @@
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:crafting_table</td>
-<td style="border-style:solid; border-width:3; padding:7px">JSON Object</td>
+<td style="border-style:solid; border-width:3; padding:7px">JSON对象</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
 <td style="border-style:solid; border-width:3; padding:7px">Describes the component of a custom crafting table. This component supports only "recipe_shaped" and "recipe_shapeless" typed recipes and not others like "recipe_furnace" or "recipe_brewing_mix". If there are two recipes for one item, the recipe book will pick the first that was parsed. If two input recipes are the same, crafting may assert and the resulting item may vary.</br>Experimental toggles required: Holiday Creator Features</br><h3><p id="crafting_tags">crafting_tags</p></h3>
 
-Defines the tags recipes should define to be crafted on this table.</br><a href="#Index">Back to top</a><br><br>
+Defines the tags recipes should define to be crafted on this table. Limited to 64 tags</br><a href="#Index">Back to top</a><br><br>
 
 <h3><p id="custom_description">custom_description</p></h3>
 
-Defines the name in the UI of this table. If not specified, the name of the block will be used.</br><a href="#Index">Back to top</a><br><br>
+Defines the language file key that maps what text will be displayed in the UI of this table. If not specified, the name of the block will be used.</br><a href="#Index">Back to top</a><br><br>
 
 </td>
 </tr>
@@ -156,12 +151,6 @@ Defines the name in the UI of this table. If not specified, the name of the bloc
 <td style="border-style:solid; border-width:3; padding:7px">要使用的几何描述标识符，该标识符必须能够匹配上一个在当前任何已经加载的资源包中存在着的几何标识符。</br>需要实验性开关：假日创作者功能</br></td>
 </tr>
 <tr>
-<td style="border-style:solid; border-width:3; padding:7px">minecraft:immovable</td>
-<td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">一个不可以动的方块不能被活塞推动</br></td>
-</tr>
-<tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:loot</td>
 <td style="border-style:solid; border-width:3; padding:7px">字符串</td>
 <td style="border-style:solid; border-width:3; padding:7px"></td>
@@ -182,28 +171,28 @@ Defines the name in the UI of this table. If not specified, the name of the bloc
 A material instance definition to map to a material instance in a geometry file. The material instance '*' will be used for any materials that don't have a match.</br><h4></h4>
 
 <table border="1" style="width:100%; border-style:solid; border-collapse:collapse; border-width:1;">
-<tr> <th style="border-style:solid; border-width:1;">Name</th> <th style="border-style:solid; border-width:1;">Type</th> <th style="border-style:solid; border-width:1;">Default Value</th> <th style="border-style:solid; border-width:1;">Description</th> </tr>
+<tr> <th style="border-style:solid; border-width:1;">名称</th> <th style="border-style:solid; border-width:1;">类型</th> <th style="border-style:solid; border-width:1;">默认值</th> <th style="border-style:solid; border-width:1;">描述</th> </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">ambient_occlusion</td>
-<td style="border-style:solid; border-width:1; padding:9px">Boolean</td>
+<td style="border-style:solid; border-width:1; padding:9px">布尔值</td>
 <td style="border-style:solid; border-width:1; padding:9px">true</td>
 <td style="border-style:solid; border-width:1; padding:9px">Should this material have ambient occlusion applied when lighting.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">face_dimming</td>
-<td style="border-style:solid; border-width:1; padding:9px">Boolean</td>
+<td style="border-style:solid; border-width:1; padding:9px">布尔值</td>
 <td style="border-style:solid; border-width:1; padding:9px">true</td>
 <td style="border-style:solid; border-width:1; padding:9px">Should this material be dimmed by the direction it's facing.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">render_method</td>
-<td style="border-style:solid; border-width:1; padding:9px">String</td>
+<td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px">opaque</td>
 <td style="border-style:solid; border-width:1; padding:9px">The render method to use. Must be one of 'opaque', 'double_sided', 'blend', or 'alpha_test'.</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:1; padding:9px">texture</td>
-<td style="border-style:solid; border-width:1; padding:9px">String</td>
+<td style="border-style:solid; border-width:1; padding:9px">字符串</td>
 <td style="border-style:solid; border-width:1; padding:9px"></td>
 <td style="border-style:solid; border-width:1; padding:9px">Texture name for the material.</br></td>
 </tr>
@@ -211,12 +200,6 @@ A material instance definition to map to a material instance in a geometry file.
 <a href="#Index">Back to top</a><br><br>
 
 </td>
-</tr>
-<tr>
-<td style="border-style:solid; border-width:3; padding:7px">minecraft:onlypistonpush</td>
-<td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">带有这个组件的方块不会黏在stickyPistons上。</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:part_visibility</td>
@@ -250,12 +233,6 @@ A material instance definition to map to a material instance in a geometry file.
 <a href="#Index">返回顶部</a><br><br>
 
 </td>
-</tr>
-<tr>
-<td style="border-style:solid; border-width:3; padding:7px">minecraft:preventsjumping</td>
-<td style="border-style:solid; border-width:3; padding:7px">布尔值</td>
-<td style="border-style:solid; border-width:3; padding:7px"></td>
-<td style="border-style:solid; border-width:3; padding:7px">该组件可以使活动对象无法于走在该方块上时跳跃</br></td>
 </tr>
 <tr>
 <td style="border-style:solid; border-width:3; padding:7px">minecraft:random_ticking</td>
